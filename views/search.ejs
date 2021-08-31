@@ -11,7 +11,7 @@
             <a>Home</a>
         </div>
         <div class="tab">
-            <a href="/search">Search Project</a>
+            Search Project
         </div>
         <div class="tab">
             Queries
@@ -37,8 +37,27 @@
             padding-top: 10px;
             padding-bottom: 10px;
         }
+        
+        .srchbar {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 50px;
+        }
+        
+        .srchbutton {
+            background-color: rgb(62, 62, 145);
+            color: white;
+        }
+        
+        #srch1 {
+            margin-right: 5px;
+        }
     </style>
     <h1>Database</h1><br><br>
+    <form method="POST" action="/search" class="srchbar">
+        <input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+        <button type="submit" class="srchbutton">Search</button>
+    </form>
     <table border="1">
         <tr>
             <th>Client Name</th>
@@ -46,30 +65,7 @@
             <th>Valuation Date</th>
         </tr>
 
-        <%
-        if(projectData.length!=0){
-        var i=1;
-        projectData.forEach(function(data){
-        %>
-            <tr>
 
-                <td>
-                    <%=data.client_name %>
-                </td>
-                <td>
-                    <%=data.project_title %>
-                </td>
-                <td>
-                    <%=data.begin_date %>
-                </td>
-
-            </tr>
-            <%  i++; }) %>
-                <% } else{ %>
-                    <tr>
-                        <td colspan="7">No Data Found</td>
-                    </tr>
-                    <% } %>
     </table>
 </body>
 
