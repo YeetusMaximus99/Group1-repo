@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AMIRisk Admin</title>
+</head>
+
+<body>
+    <h1>Database</h1><br><br>
+    <table border="1">
+        <tr>
+            <th>Client Name</th>
+            <th>Project</th>
+            <th>Valuation Date</th>
+        </tr>
+
+        <%
+        if(projectData.length!=0){
+        var i=1;
+        projectData.forEach(function(data){
+        %>
+            <tr>
+
+                <td>
+                    <%=data.client_name %>
+                </td>
+                <td>
+                    <%=data.project_title %>
+                </td>
+                <td>
+                    <%=data.begin_date %>
+                </td>
+
+            </tr>
+            <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
+    </table>
+</body>
+
+</html>
