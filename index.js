@@ -7,10 +7,12 @@ var cons = require('consolidate');
 
 app.use(express.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '/views'));
+//app.set('layout', './partials/topbar')
 app.set('view engine', 'ejs');
 app.get('/', routes)
 app.get('/search', routes);
 app.post('/search', routes);
+//app.post('/searchresults', routes);
 
 const server = app.listen(port, () => {
     console.log(`The application started on port ${port}`);

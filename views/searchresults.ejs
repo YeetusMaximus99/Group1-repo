@@ -7,7 +7,27 @@
 
 <body>
     <%- include('partials/topbar')%>
-        <h1>Database</h1><br><br>
+        <h1>Search Results</h1><br><br>
+        <form method="POST" action="/search" class="srchbar">
+            <input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+            <button type="submit" class="srchbutton">Search</button>
+        </form>
+        <style>
+            .srchbar {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 50px;
+            }
+            
+            .srchbutton {
+                background-color: rgb(62, 62, 145);
+                color: white;
+            }
+            
+            #srch1 {
+                margin-right: 5px;
+            }
+        </style>
         <table border="1">
             <tr>
                 <th>Client Name</th>

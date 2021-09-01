@@ -1,59 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>AMIRisk Admin</title>
-</head>
-
-<body>
-    <div class="navbar">
-        <div class="tab">
-            <a>Home</a>
-        </div>
-        <div class="tab">
-            Search Project
-        </div>
-        <div class="tab">
-            Queries
-        </div>
-        <div class="tab">
-            Add Project
-        </div>
-        <div class="tab">
-            Log Out
-        </div>
-    </div>
-    <style>
-        .navbar {
-            display: flex;
-            flex-direction: row;
-            background-color: gray;
-            color: white;
-        }
-        
-        .tab {
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        
-        .srchbar {
-            display: flex;
-            flex-direction: row;
-            margin-bottom: 50px;
-        }
-        
-        .srchbutton {
-            background-color: rgb(62, 62, 145);
-            color: white;
-        }
-        
-        #srch1 {
-            margin-right: 5px;
-        }
-    </style>
-    <h1>Database</h1><br><br>
+<style>
+    .srchbar {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+    
+    .srchbutton {
+        background-color: rgb(62, 62, 145);
+        color: white;
+    }
+    
+    #srch1 {
+        margin-right: 5px;
+    }
+</style>
+<%- include('partials/topbar')%>
+    <h1>Search</h1><br><br>
     <form method="POST" action="/search" class="srchbar">
         <input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
         <button type="submit" class="srchbutton">Search</button>
@@ -67,6 +29,3 @@
 
 
     </table>
-</body>
-
-</html>
