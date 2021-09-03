@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 app.get('/', routes)
 app.get('/search', routes);
 app.post('/search', routes);
+app.get('/addproject', routes);
 //app.post('/searchresults', routes);
 
 const server = app.listen(port, () => {

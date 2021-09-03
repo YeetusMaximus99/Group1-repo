@@ -25,7 +25,7 @@ const controller = {
         var srch = req.body.srchclients;
         console.log(srch);
         var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project p JOIN tbl_client c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
-        var sql2 = 'SELECT client_name FROM tbl_client';
+        var sql2 = 'SELECT client_name FROM tbl_client ORDER BY client_name';
         con.query(sql, function(err, data2, fields) {
             if (err) throw err;
             console.log(data2);
@@ -38,11 +38,15 @@ const controller = {
 
     },
 
+    getAddProject: function(req, res) {
+        res.render('addproject');
+    },
+
     searchResults: function(req, res) {
         var srch = req.body.srchclients;
         console.log(srch);
         var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project p JOIN tbl_client c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
-        var sql2 = 'SELECT client_name FROM tbl_client';
+        var sql2 = 'SELECT client_name FROM tbl_client ORDER BY client_name';
         con.query(sql, function(err2, data2, fields) {
             if (err) throw err;
             console.log(data2);
