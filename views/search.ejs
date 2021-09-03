@@ -17,15 +17,15 @@
 <%- include('partials/topbar')%>
     <h1>Search</h1><br><br>
     <form method="POST" action="/search" class="srchbar">
-        <input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+        <!--<input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+        <button type="submit" class="srchbutton">Search</button>-->
+        <label for="srchclients">Select client: </label><br>
+        <select name="srchclients" id="srchclients">
+            <% for(var i=0; i < dropdownData.length; i++) { %>
+                <option>
+                    <%= dropdownData[i].client_name %>
+                </option>
+              <%}%>
+        </select>
         <button type="submit" class="srchbutton">Search</button>
     </form>
-    <table border="1">
-        <tr>
-            <th>Client Name</th>
-            <th>Project</th>
-            <th>Valuation Date</th>
-        </tr>
-
-
-    </table>

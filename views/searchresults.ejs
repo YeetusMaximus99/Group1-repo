@@ -9,7 +9,14 @@
     <%- include('partials/topbar')%>
         <h1>Search Results</h1><br><br>
         <form method="POST" action="/search" class="srchbar">
-            <input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+            <label for="srchclients">Select client: </label><br>
+            <select name="srchclients" id="srchclients">
+            <% for(var i=0; i < dropdownData.length; i++) { %>
+                <option>
+                    <%= dropdownData[i].client_name %>
+                </option>
+              <%}%>
+            </select>
             <button type="submit" class="srchbutton">Search</button>
         </form>
         <style>
@@ -36,7 +43,7 @@
             </tr>
 
             <%
-        if(projectData.length!=0){
+         if(projectData.length!=0){
         var i=1;
         projectData.forEach(function(data){
         %>
@@ -46,10 +53,10 @@
                         <%=data.client_name %>
                     </td>
                     <td>
-                        <%=data.project_title %>
+                        <%=data.project %>
                     </td>
                     <td>
-                        <%=data.begin_date %>
+                        <%=data.Valuation_date %>
                     </td>
 
                 </tr>
