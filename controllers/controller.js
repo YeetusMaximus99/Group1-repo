@@ -1,8 +1,12 @@
 const con = require('../database.js');
 
-//TODO: regex search
+//TODO: add to tbl_project
+//TODO: confirm fields
 const controller = {
 
+    /** This function gets all the projects by to be displayed in home. 
+     *  For all entries in the tbl_project, the client and project names are obtained from the tbl_clients using INNER JOIN
+     */
     getTable: function(req, res) {
         var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project p JOIN tbl_client c ON p.client_id = c.client_id ORDER BY	c.project';
         con.query(sql, function(err, data, fields) {
@@ -12,6 +16,7 @@ const controller = {
         });
     },
 
+    /**This function gets all the client names from tbl_clients to populate the dropdown options for the search */
     getSearch: function(req, res) {
         var sql = 'SELECT client_name FROM tbl_client';
         con.query(sql, function(err, data, fields) {
@@ -21,6 +26,10 @@ const controller = {
         });
     },
 
+    /** The results from the search function are passed
+     * The client and project names of the results from tbl_project are obtained from the tbl_clients using INNER JOIN
+     * This function also gets all the client names from tbl_clients to populate the dropdown options for the search should the user wishes to search again
+     */
     postSearch: function(req, res) {
         var srch = req.body.srchclients;
         console.log(srch);
@@ -38,9 +47,11 @@ const controller = {
 
     },
 
+
     getAddProject: function(req, res) {
         res.render('addproject');
     },
+
 
     searchResults: function(req, res) {
         var srch = req.body.srchclients;
@@ -56,6 +67,34 @@ const controller = {
                 res.render('searchresults', { title: 'Search Results', projectData: data2, dropdownData: data });
             });
         });
+
+    },
+
+    postAddProject: function(req, res) {
+        var clientname = req.body.clientname;
+        var projname = req.body.projname;
+        var contactperson = req.body.contactperson;
+        var billingname = req.body.billingname;
+        //var billingaddress = req.body.billingaddress;
+        var billingemail = req.body.billingemail;
+        var billingcc = req.body.billingcc;
+        var sql2 = "SELECT * FROM tbl_client WHERE client_name LIKE" + con.escape(clientname) + " AND project LIKE " + con.escape(projname);
+        var sql = "INSERT INTO tbl_client VALUES ( NULL, " + con.escape(clientname) + ", " +
+            con.escape(projname) + ", " + con.escape(contactperson) + ", " + con.escape(billingname) + ", " +
+            con.escape(billingemail) + ", " + con.escape(billingcc) + ") ";
+        con.query(sql2, function(err, data, fields) {
+            if (err) throw err;
+            if (data.length <= 0) {
+                con.query(sql, function(err, result) {
+                    if (err) throw err;
+                    console.log("1 record inserted");
+                    res.render('addedscreen', { title: 'Success' });
+                });
+            } else {
+                console.log("already exists!");
+                res.render('addedscreen'); //<--temporary
+            }
+        })
 
     }
 

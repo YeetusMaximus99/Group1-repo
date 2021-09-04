@@ -15,18 +15,29 @@
     }
 </style>
 <%- include('partials/topbar')%>
-    <h1>Search</h1><br><br>
-    <form method="POST" action="/search" class="srchbar">
-        <!--<input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>AMIRisk Admin</title>
+    </head>
+
+    <body>
+        <h1>Search</h1><br><br>
+        <form method="POST" action="/search" class="srchbar">
+            <!--<input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
         <button type="submit" class="srchbutton">Search</button>-->
-        <label for="srchclients">Select client: </label><br>
-        <select name="srchclients" id="srchclients">
-            <option selected="selected">--SELECT CLIENT--</option>
+            <label for="srchclients">Select client: </label><br>
+            <select name="srchclients" id="srchclients">
+                <option selected="selected">--SELECT CLIENT--</option>
             <% for(var i=0; i < dropdownData.length; i++) { %>
                 <option>
                     <%= dropdownData[i].client_name %>
                 </option>
               <%}%>
         </select>
-        <button type="submit" class="srchbutton">Search</button>
-    </form>
+            <button type="submit" class="srchbutton">Search</button>
+        </form>
+    </body>
+
+    </html>

@@ -8,6 +8,6 @@ app.get('/', controller.getTable);
 app.get('/search', controller.getSearch);
 app.post('/search', controller.postSearch);
 app.get('/addproject', controller.getAddProject);
-
+app.post('/addproject', controller.postAddProject);
 
 module.exports = app;

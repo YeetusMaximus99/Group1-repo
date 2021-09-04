@@ -11,7 +11,8 @@
         <form method="POST" action="/search" class="srchbar">
             <label for="srchclients">Select client: </label><br>
             <select name="srchclients" id="srchclients">
-            <% for(var i=0; i < dropdownData.length; i++) { %>
+                <option selected="selected">--SELECT CLIENT--</option>
+                <% for(var i=0; i < dropdownData.length; i++) { %>
                 <option>
                     <%= dropdownData[i].client_name %>
                 </option>

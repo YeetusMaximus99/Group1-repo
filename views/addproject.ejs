@@ -8,12 +8,12 @@
 <body>
     <%- include('partials/topbar')%>
         <br><br><br> Add a Project<br><br>
-        <form name="addaproject">
+        <form name="addaproject" method="POST" action="/addproject">
             <label for="clientname">Client Name:</label>
-            <input type="text" name="clientname"><br>
+            <input type="text" name="clientname" required><br>
 
             <label for="projname">Project Name:</label>
-            <input type="text" name="projname"><br>
+            <input type="text" name="projname" required><br>
 
             <label for="valuationdate">Valuation Date:</label>
             <input type="date" name="valuationdate"><br>
@@ -79,13 +79,13 @@
             <br>
 
             <label for="contactperson">Contact Person:</label>
-            <textarea name="contactperson"></textarea><br>
+            <textarea name="contactperson" required></textarea><br>
 
             <label for="companyaddress">Company Address:</label>
             <textarea name="companyaddress"></textarea><br>
 
             <label for="billingname">Billing Name:</label>
-            <textarea name="billingname"></textarea><br>
+            <textarea name="billingname" required></textarea><br>
 
             <label for="billingaddress">Billing Address:</label>
             <textarea name="billingaddress"></textarea><br>
@@ -94,10 +94,10 @@
             <input type="text" name="statezip"><br>
 
             <label for="billingemail">Billing Email:</label>
-            <input type="text" name="billingemail"><br>
+            <input type="text" name="billingemail" required><br>
 
             <label for="billingcc">Billing CC:</label>
-            <input type="text" name="billingcc"><br>
+            <input type="text" name="billingcc" required><br>
 
             <label for="lineofbusiness">Line of Business:</label>
             <input type="text" name="lineofbusiness"><br>
