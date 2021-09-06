@@ -36,38 +36,224 @@
                 margin-right: 5px;
             }
         </style>
-        <table border="1">
-            <tr>
-                <th>Client Name</th>
-                <th>Project</th>
-                <th>Valuation Date</th>
-            </tr>
+        <%console.log(fieldData)%>
+            <table border="1">
+                <tr>
+                    <th>Client Name</th>
+                    <th>Project</th>
+                    <% if(fieldData[0]==1) {%>
+                        <th>Valuation Date</th>
+                        <% } %>
 
-            <%
+                            <% if(fieldData[1]==1) {%>
+                                <th>Additional Description</th>
+                                <% } %>
+
+                                    <% if(fieldData[2]==1) {%>
+                                        <th>Consultant</th>
+                                        <% } %>
+
+                                            <% if(fieldData[3]==1) {%>
+                                                <th>Manila ID</th>
+                                                <% } %>
+
+                                                    <% if(fieldData[4]==1) {%>
+                                                        <th>Date Received</th>
+                                                        <% } %>
+
+                                                            <% if(fieldData[5]==1) {%>
+                                                                <th>Date Finalized</th>
+                                                                <% } %>
+
+                                                                    <% if(fieldData[6]==1) {%>
+                                                                        <th>Fee</th>
+                                                                        <% } %>
+
+                                                                            <% if(fieldData[7]==1) {%>
+                                                                                <th>Billed ID</th>
+                                                                                <% } %>
+
+                                                                                    <% if(fieldData[8]==1) {%>
+                                                                                        <th>Date Billed</th>
+                                                                                        <% } %>
+
+                                                                                            <% if(fieldData[9]==1) {%>
+                                                                                                <th>Ref No.</th>
+                                                                                                <% } %>
+
+                                                                                                    <% if(fieldData[10]==1) {%>
+                                                                                                        <th>Status ID</th>
+                                                                                                        <% } %>
+
+                                                                                                            <% if(fieldData[11]==1) {%>
+                                                                                                                <th>Mailed by</th>
+                                                                                                                <% } %>
+
+                                                                                                                    <% if(fieldData[12]==1) {%>
+                                                                                                                        <th>Company Address</th>
+                                                                                                                        <% } %>
+
+                                                                                                                            <% if(fieldData[13]==1) {%>
+                                                                                                                                <th>Billing Name</th>
+                                                                                                                                <% } %>
+
+                                                                                                                                    <% if(fieldData[14]==1) {%>
+                                                                                                                                        <th>Billing Address</th>
+                                                                                                                                        <% } %>
+
+                                                                                                                                            <% if(fieldData[15]==1) {%>
+                                                                                                                                                <th>Billing Email</th>
+                                                                                                                                                <% } %>
+
+                                                                                                                                                    <% if(fieldData[16]==1) {%>
+                                                                                                                                                        <th>Billing cc</th>
+                                                                                                                                                        <% } %>
+
+                                                                                                                                                            <% if(fieldData[17]==1) {%>
+                                                                                                                                                                <th>Line of Work</th>
+                                                                                                                                                                <% } %>
+
+
+                </tr>
+
+                <%
          if(projectData.length!=0){
         var i=1;
         projectData.forEach(function(data){
         %>
-                <tr>
+                    <tr>
 
-                    <td>
-                        <%=data.client_name %>
-                    </td>
-                    <td>
-                        <%=data.project %>
-                    </td>
-                    <td>
-                        <%=data.Valuation_date %>
-                    </td>
+                        <td>
+                            <%=data.client_name %>
+                        </td>
+                        <td>
+                            <%=data.project %>
+                        </td>
+                        <% if( fieldData[0]==1) {%>
+                            <td>
+                                <%=data.Valuation_date %>
+                            </td>
+                            <% } %>
 
-                </tr>
-                <%  i++; }) %>
-                    <% } else{ %>
-                        <tr>
-                            <td colspan="7">No Data Found</td>
-                        </tr>
-                        <% } %>
-        </table>
+                                <% if( fieldData[1]==1) {%>
+                                    <td>
+                                        <%=data.Additional_Description %>
+                                    </td>
+                                    <% } %>
+
+                                        <% if( fieldData[2]==1) {%>
+                                            <td>
+                                                <%=data.miami_id %>
+                                            </td>
+                                            <% } %>
+
+                                                <% if( fieldData[3]==1) {%>
+                                                    <td>
+                                                        <%=data.manila_id %>
+                                                    </td>
+                                                    <% } %>
+
+                                                        <% if( fieldData[4]==1) {%>
+                                                            <td>
+                                                                <%=data.data_received %>
+                                                            </td>
+                                                            <% } %>
+
+                                                                <% if( fieldData[5]==1) {%>
+                                                                    <td>
+                                                                        <%=data.date_finalized %>
+                                                                    </td>
+                                                                    <% } %>
+
+                                                                        <% if( fieldData[6]==1) {%>
+                                                                            <td>
+                                                                                <%=data.fee%>
+                                                                            </td>
+                                                                            <% } %>
+
+                                                                                <% if( fieldData[7]==1) {%>
+                                                                                    <td>
+                                                                                        <%=data.billed_id %>
+                                                                                    </td>
+                                                                                    <% } %>
+
+                                                                                        <% if( fieldData[8]==1) {%>
+                                                                                            <td>
+                                                                                                <%=data.date_billed %>
+                                                                                            </td>
+                                                                                            <% } %>
+
+                                                                                                <% if( fieldData[9]==1) {%>
+                                                                                                    <td>
+                                                                                                        <%=data.Ref %>
+                                                                                                    </td>
+                                                                                                    <% } %>
+
+                                                                                                        <% if( fieldData[10]==1) {%>
+                                                                                                            <td>
+                                                                                                                <%=data.status_id %>
+                                                                                                            </td>
+                                                                                                            <% } %>
+
+                                                                                                                <% if( fieldData[11]==1) {%>
+                                                                                                                    <td>
+                                                                                                                        <%=data.mail_id %>
+                                                                                                                    </td>
+                                                                                                                    <% } %>
+
+                                                                                                                        <% if( fieldData[12]==1) {%>
+                                                                                                                            <td>
+                                                                                                                                <%=data.billing_name %>
+                                                                                                                            </td>
+                                                                                                                            <% } %>
+
+                                                                                                                                <% if( fieldData[13]==1) {%>
+                                                                                                                                    <td>
+                                                                                                                                        <%=data.billing_address %>
+                                                                                                                                    </td>
+                                                                                                                                    <% } %>
+
+                                                                                                                                        <% if( fieldData[14]==1) {%>
+                                                                                                                                            <td>
+                                                                                                                                                <%=data.billing_address %>
+                                                                                                                                            </td>
+                                                                                                                                            <% } %>
+
+                                                                                                                                                <% if( fieldData[15]==1) {%>
+                                                                                                                                                    <td>
+                                                                                                                                                        <%=data.billing_email %>
+                                                                                                                                                    </td>
+                                                                                                                                                    <% } %>
+
+                                                                                                                                                        <% if( fieldData[16]==1) {%>
+                                                                                                                                                            <td>
+                                                                                                                                                                <%=data.billing_cc %>
+                                                                                                                                                            </td>
+                                                                                                                                                            <% } %>
+
+                                                                                                                                                                <% if( fieldData[17]==1) {%>
+                                                                                                                                                                    <td>
+                                                                                                                                                                        <%=data.line %>
+                                                                                                                                                                    </td>
+                                                                                                                                                                    <% } %>
+
+                                                                                                                                                                        <td>
+                                                                                                                                                                            View
+                                                                                                                                                                            <br> Edit
+                                                                                                                                                                            <br> Delete
+                                                                                                                                                                            <br>
+                                                                                                                                                                        </td>
+
+                    </tr>
+                    <%  i++; }) %>
+                        <% } else{ %>
+                            <tr>
+                                <td colspan="7">No Data Found</td>
+                            </tr>
+                            <% } %>
+            </table>
 </body>
 
 </html>
+<script>
+</script>

@@ -25,17 +25,80 @@
     <body>
         <h1>Search</h1><br><br>
         <form method="POST" action="/search" class="srchbar">
-            <!--<input type="search" id="srch1" name="searchproj" placeholder="Search Project...">
-        <button type="submit" class="srchbutton">Search</button>-->
-            <label for="srchclients">Select client: </label><br>
-            <select name="srchclients" id="srchclients">
+            <div>
+                <label for="srchclients">Select client: </label><br>
+                <select name="srchclients" id="srchclients">
                 <option selected="selected">--SELECT CLIENT--</option>
-            <% for(var i=0; i < dropdownData.length; i++) { %>
-                <option>
-                    <%= dropdownData[i].client_name %>
-                </option>
-              <%}%>
-        </select>
+                <% for(var i=0; i < dropdownData.length; i++) { %>
+                    <option>
+                        <%= dropdownData[i].client_name %>
+                    </option>
+                <%}%>
+            </select>
+            </div>
+            <br>
+            <div>
+                <input type="checkbox" name="nxtval" value=", p.next_valuation_date">
+                <label for="nxtval">Next Valuation Date</label><br>
+
+                <input type="checkbox" name="additional" value=", p.Additional_description">
+                <label for="additional">Additional Description</label><br>
+
+                <input type="checkbox" name="consultant" value=", p.miami_id">
+                <label for="consultant">Consultant</label><br>
+
+                <input type="checkbox" name="manila" value=", p.manila_id">
+                <label for="manila">Assigned in Manila</label><br>
+
+                <input type="checkbox" name="datareceived" value=". p.data_received">
+                <label for="datareceived">Data Received</label><br>
+
+                <input type="checkbox" name="datefinalized" value=", p.date_finalized">
+                <label for="datefinalized">Date Finalized</label><br>
+
+                <input type="checkbox" name="fee" value=", p.fee">
+                <label for="fee">Fee Quoted</label><br>
+
+                <input type="checkbox" name="billed" value=", p.billed_id">
+                <!--TODO: change to tbl_billed-->
+                <label for="billed">Billed</label><br>
+
+                <input type="checkbox" name="datebilled" value=", p.date_billed">
+                <label for="datebilled">Date Billed</label><br>
+
+                <input type="checkbox" name="ref" value=", p.Ref">
+                <label for="ref">Reference no./Contract no.</label><br>
+
+                <input type="checkbox" name="status" value=", p.status_id">
+                <!--TODO: change to tb_status-->
+                <label for="status">Status</label><br>
+
+                <input type="checkbox" name="mailedby" value=", p.mail_id">
+                <label for="mailedby">Mailed By</label><br>
+
+                <input type="checkbox" name="contact" value="contact">
+                <!--TODO: link with contacts database-->
+                <label for="contact">Contact Person</label><br>
+
+                <input type="checkbox" name="companyadd" value=", c.company_add">
+                <label for="draftsent">Draft Sent</label><br>
+
+                <input type="checkbox" name="billname" value=", c.billing_name">
+                <label for="billname">Billing Name</label><br>
+
+                <input type="checkbox" name="billadd" value=", c.billing_address">
+                <label for="billadd">Billing Address</label><br>
+
+                <input type="checkbox" name="billemail" value=", c.billing_email">
+                <label for="billemail">Billing Email</label><br>
+
+                <input type="checkbox" name="billcc" value=", c.billing_cc">
+                <label for="billcc">Billing CC</label><br>
+
+                <input type="checkbox" name="line" value=", c.line">
+                <label for="line">Line of Business</label><br>
+            </div>
+            <br>
             <button type="submit" class="srchbutton">Search</button>
         </form>
     </body>
