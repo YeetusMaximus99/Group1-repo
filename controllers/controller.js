@@ -33,8 +33,8 @@ const controller = {
     postSearch: function(req, res) {
         var srch = req.body.srchclients;
         console.log(srch);
-        var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project p JOIN tbl_client c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
-        var sql2 = 'SELECT client_name FROM tbl_client ORDER BY client_name';
+        var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
+        var sql2 = 'SELECT client_name FROM tbl_client_bkp ORDER BY client_name';
         con.query(sql, function(err, data2, fields) {
             if (err) throw err;
             console.log(data2);
@@ -47,17 +47,11 @@ const controller = {
 
     },
 
-
-    getAddProject: function(req, res) {
-        res.render('addproject');
-    },
-
-
     searchResults: function(req, res) {
         var srch = req.body.srchclients;
         console.log(srch);
         var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
-        var sql2 = 'SELECT client_name FROM tbl_client ORDER BY client_name';
+        var sql2 = 'SELECT client_name FROM tbl_client_bkp ORDER BY client_name';
         con.query(sql, function(err2, data2, fields) {
             if (err) throw err;
             console.log(data2);
@@ -70,6 +64,10 @@ const controller = {
 
     },
 
+    getAddProject: function(req, res) {
+        res.render('addproject');
+    },
+
     postAddProject: function(req, res) {
         var clientname = req.body.clientname;
         var projname = req.body.projname;
@@ -79,7 +77,7 @@ const controller = {
         var billingemail = req.body.billingemail;
         var billingcc = req.body.billingcc;
         var sql2 = "SELECT * FROM tbl_client_bkp WHERE client_name LIKE" + con.escape(clientname) + " AND project LIKE " + con.escape(projname);
-        var sql = "INSERT INTO tbl_client VALUES ( NULL, " + con.escape(clientname) + ", " +
+        var sql = "INSERT INTO tbl_client_bkp VALUES ( NULL, " + con.escape(clientname) + ", " +
             con.escape(projname) + ", " + con.escape(contactperson) + ", " + con.escape(billingname) + ", " +
             con.escape(billingemail) + ", " + con.escape(billingcc) + ") ";
         con.query(sql2, function(err, data, fields) {
