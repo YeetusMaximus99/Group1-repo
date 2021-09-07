@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AMIRisk Admin</title>
+</head>
+
+<body>
+
+    <%- include('partials/topbar')%>
+
+    <br><br><br>Show/hide buttons for query tables:<br><br>
+    <button onclick="hide_show_proposals_noBidResults_noEvaluationSheets()">Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS</button><br><br>
+    <button onclick="hide_show_proposals_orderedByYear()">Proposals submitted ORDERED BY YEAR</button><br><br>
+    <button onclick="hide_show_contracts_active()">Active Contracts</button><br><br>
+    <button onclick="hide_show_contracts_expired()">Expired Contracts</button><br><br>
+    
+    <div id="proposals_noBidResults_noEvaluationSheets" style="display:none">
+        <table border="1">
+            <caption style="font-weight: bold; font-style:italic">Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS</caption>
+            <th>Proposal ID</th>
+            <th>Name ID</th>
+            <th>Proposal Name</th>
+            <th>Category</th>
+            <th>Winning Bidder</th>
+            <th>Winning Price</th>
+            <th>AMI Price</th>
+            <th>Issue Date</th>
+            <th>Date Submitted</th>
+            <th>Due Date</th>
+            <th>Tab Sheet</th>
+            <th>Notes</th>
+            <th>RFP Number</th>
+            <th>Former Actuary</th>
+            <th>Former Price</th>
+            <th>Contract</th>
+            <th>Options</th>
+            <th>Option End</th>
+            <th>How</th>
+            <th>Who Did</th>
+            <th>Review</th>
+            <th>Eval</th>
+            <th>Status</th>
+            <th>Special</th>
+
+            <%
+        if(projectData1.length!=0){
+        var i=1;
+        projectData1.forEach(function(data1){
+        %>
+                <tr>
+
+                    <td>
+                        <%=data1.proposal_id %>
+                    </td>
+                    <td>
+                        <%=data1.name_id %>
+                    </td>
+                    <td>
+                        <%=data1.proposal_name %>
+                    </td>
+                    <td>
+                        <%=data1.category %>
+                    </td>
+                    <td>
+                        <%=data1.winning_bidder %>
+                    </td>
+                    <td>
+                        <%=data1.winning_price %>
+                    </td>
+                    <td>
+                        <%=data1.AMI_price %>
+                    </td>
+                    <td>
+                        <%=data1.issue_date %>
+                    </td>
+                    <td>
+                        <%=data1.date_submitted %>
+                    </td>
+                    <td>
+                        <%=data1.due_date %>
+                    </td>
+                    <td>
+                        <%=data1.tab_sheet %>
+                    </td>
+                    <td>
+                        <%=data1.notes %>
+                    </td>
+                    <td>
+                        <%=data1.rfp_no %>
+                    </td>
+                    <td>
+                        <%=data1.former_actuary %>
+                    </td>
+                    <td>
+                        <%=data1.former_price %>
+                    </td>
+                    <td>
+                        <%=data1.contract %>
+                    </td>
+                    <td>
+                        <%=data1.Options %>
+                    </td>
+                    <td>
+                        <%=data1.option_end %>
+                    </td>
+                    <td>
+                        <%=data1.how %>
+                    </td>
+                    <td>
+                        <%=data1.who_did %>
+                    </td>
+                    <td>
+                        <%=data1.review %>
+                    </td>
+                    <td>
+                        <%=data1.eval %>
+                    </td>
+                    <td>
+                        <%=data1.status %>
+                    </td>
+                    <td>
+                        <%=data1.special %>
+                    </td>
+
+                </tr>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+    <br>
+
+    <div id="proposals_orderedByYear" style="display:none">
+        <table border="1">
+            <caption style="font-weight: bold; font-style:italic">Proposals submitted ORDERED BY YEAR</caption>
+            <th>Proposal ID</th>
+            <th>Name ID</th>
+            <th>Proposal Name</th>
+            <th>Category</th>
+            <th>Winning Bidder</th>
+            <th>Winning Price</th>
+            <th>AMI Price</th>
+            <th>Issue Date</th>
+            <th>Date Submitted</th>
+            <th>Due Date</th>
+            <th>Tab Sheet</th>
+            <th>Notes</th>
+            <th>RFP Number</th>
+            <th>Former Actuary</th>
+            <th>Former Price</th>
+            <th>Contract</th>
+            <th>Options</th>
+            <th>Option End</th>
+            <th>How</th>
+            <th>Who Did</th>
+            <th>Review</th>
+            <th>Eval</th>
+            <th>Status</th>
+            <th>Special</th>
+
+            <%
+        if(projectData2.length!=0){
+        var i=1;
+        projectData2.forEach(function(data2){
+        %>
+                <tr>
+
+                    <td>
+                        <%=data2.proposal_id %>
+                    </td>
+                    <td>
+                        <%=data2.name_id %>
+                    </td>
+                    <td>
+                        <%=data2.proposal_name %>
+                    </td>
+                    <td>
+                        <%=data2.category %>
+                    </td>
+                    <td>
+                        <%=data2.winning_bidder %>
+                    </td>
+                    <td>
+                        <%=data2.winning_price %>
+                    </td>
+                    <td>
+                        <%=data2.AMI_price %>
+                    </td>
+                    <td>
+                        <%=data2.issue_date %>
+                    </td>
+                    <td>
+                        <%=data2.date_submitted %>
+                    </td>
+                    <td>
+                        <%=data2.due_date %>
+                    </td>
+                    <td>
+                        <%=data2.tab_sheet %>
+                    </td>
+                    <td>
+                        <%=data2.notes %>
+                    </td>
+                    <td>
+                        <%=data2.rfp_no %>
+                    </td>
+                    <td>
+                        <%=data2.former_actuary %>
+                    </td>
+                    <td>
+                        <%=data2.former_price %>
+                    </td>
+                    <td>
+                        <%=data2.contract %>
+                    </td>
+                    <td>
+                        <%=data2.Options %>
+                    </td>
+                    <td>
+                        <%=data2.option_end %>
+                    </td>
+                    <td>
+                        <%=data2.how %>
+                    </td>
+                    <td>
+                        <%=data2.who_did %>
+                    </td>
+                    <td>
+                        <%=data2.review %>
+                    </td>
+                    <td>
+                        <%=data2.eval %>
+                    </td>
+                    <td>
+                        <%=data2.status %>
+                    </td>
+                    <td>
+                        <%=data2.special %>
+                    </td>
+
+                </tr>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+    <br>
+
+    <div id="contracts_active" style="display:none">
+        <table border="1">
+            <caption style="font-weight: bold; font-style:italic">Active Contracts</caption>
+            <th>Client Name</th>
+            <th>Contract Number</th>
+            <th>Project Title</th>
+            <th>Contract Fees</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Possible Extension</th>
+            <th>Extension Date End</th>
+            <th>Remarks</th>
+
+            <%
+        if(projectData3.length!=0){
+        var i=1;
+        projectData3.forEach(function(data3){
+        %>
+                <tr>
+
+                    <td>
+                        <%=data3.client_name %>
+                    </td>
+                    <td>
+                        <%=data3.contract_no %>
+                    </td>
+                    <td>
+                        <%=data3.project_title %>
+                    </td>
+                    <td>
+                        <%=data3.contract_fees %>
+                    </td>
+                    <td>
+                        <%=data3.begin_date %>
+                    </td>
+                    <td>
+                        <%=data3.end_date %>
+                    </td>
+                    <td>
+                        <%=data3.possible_extension %>
+                    </td>
+                    <td>
+                        <%=data3.extension_date_end %>
+                    </td>
+                    <td>
+                        <%=data3.remarks %>
+                    </td>
+
+                </tr>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+    <br>
+
+    <div id="contracts_expired" style="display:none">
+        <table border="1">
+            <caption style="font-weight: bold; font-style:italic">Expired Contracts</caption>
+            <th>Client Name</th>
+            <th>Contract Number</th>
+            <th>Project Title</th>
+            <th>Contract Fees</th>
+            <th>Begin Date</th>
+            <th>End Date</th>
+            <th>Possible Extension</th>
+            <th>Extension Date End</th>
+            <th>Remarks</th>
+
+            <%
+        if(projectData4.length!=0){
+        var i=1;
+        projectData4.forEach(function(data4){
+        %>
+                <tr>
+
+                    <td>
+                        <%=data4.client_name %>
+                    </td>
+                    <td>
+                        <%=data4.contract_no %>
+                    </td>
+                    <td>
+                        <%=data4.project_title %>
+                    </td>
+                    <td>
+                        <%=data4.contract_fees %>
+                    </td>
+                    <td>
+                        <%=data4.begin_date %>
+                    </td>
+                    <td>
+                        <%=data4.end_date %>
+                    </td>
+                    <td>
+                        <%=data4.possible_extension %>
+                    </td>
+                    <td>
+                        <%=data4.extension_date_end %>
+                    </td>
+                    <td>
+                        <%=data4.remarks %>
+                    </td>
+
+                </tr>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="7">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+
+    <!-- Hide/Show functions for query tables -->
+    <script>
+        // Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS
+        function hide_show_proposals_noBidResults_noEvaluationSheets() {
+            var x = document.getElementById("proposals_noBidResults_noEvaluationSheets");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+        }
+        // Proposals submitted ORDERED BY YEAR
+        function hide_show_proposals_orderedByYear() {
+            var x = document.getElementById("proposals_orderedByYear");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+        }
+        // Active Contracts
+        function hide_show_contracts_active() {
+            var x = document.getElementById("contracts_active");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+        }
+        // Expired Contracts
+        function hide_show_contracts_expired() {
+            var x = document.getElementById("contracts_expired");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

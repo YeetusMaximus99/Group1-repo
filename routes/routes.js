@@ -9,5 +9,7 @@ app.get('/search', controller.getSearch);
 app.post('/search', controller.postSearch);
 app.get('/addproject', controller.getAddProject);
 app.post('/addproject', controller.postAddProject);
+app.get('/queries', controller.getQueries);
+app.post('/queries', controller.postQueries);
 
 module.exports = app;

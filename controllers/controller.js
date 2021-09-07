@@ -168,6 +168,30 @@ const controller = {
             }
         })
 
+    },
+
+    getQueries: function(req, res) {
+        var proposal1 = 'SELECT * FROM `tbl_proposal` WHERE winning_bidder = "" AND tab_sheet = "";';
+        var proposal2 = "SELECT * FROM `tbl_proposal` ORDER BY YEAR(date_submitted);";
+        var contracts_active = "SELECT * FROM tbl_contracts WHERE end_date >= CURDATE();"
+        var contracts_expired = "SELECT * FROM tbl_contracts WHERE end_date < CURDATE();";
+
+        con.query(proposal1, function(err, data1) {
+            con.query(proposal2, function(err, data2) {
+                con.query(contracts_active, function(err, data3) {
+                    con.query(contracts_expired, function(err, data4) {
+                        if (err) throw err;
+                        console.log(data2);
+                        res.render('queries', { title: 'Queries', projectData1: data1, projectData2: data2, projectData3: data3, projectData4: data4 });
+                    });
+                });
+            });
+        });
+        
+    },
+
+    postQueries: function(req, res) {
+        
     }
 
 
