@@ -148,28 +148,66 @@ const controller = {
         var statezip = req.body.statezip;
         var lineofwork = req.body.lineofbusiness;
         var companyaddress = req.body.companyaddress;
+        //to tbl_client
+        var valuationdate = req.body.valuationdate;
+        var consultant = req.body.consultant;
+        var manila = req.body.manila;
+        var datareceived = req.body.datareceived;
+        var draftsent = req.body.draftsent;
+        var datefinalized = req.body.finalizeddate;
+        var datedue = req.body.duedate;
+        var nxtval = req.body.nxtvaluationdate;
+        var fee = req.body.fee;
+        var ref = req.body.ref;
+        var billed = req.body.billed;
+        var datebilled = req.body.billeddate;
+        var invoiceno = req.body.invoiceno;
+        var status = req.body.status;
+        var additional = req.body.additional;
+        var mailedby = req.body.mailedby;
+        var comments = req.body.comments;
+
+
 
         var sql2 = "SELECT * FROM tbl_client_bkp WHERE client_name LIKE" + con.escape(clientname) + " AND project LIKE " + con.escape(projname);
-        var sql = "INSERT INTO tbl_client_bkp VALUES ( NULL, " + con.escape(clientname) + ", " +
+        var sqlclient = "INSERT INTO tbl_client_bkp VALUES ( NULL, " + con.escape(clientname) + ", " +
             con.escape(projname) + ", " + con.escape(contactperson) + ", " +
             con.escape(billingname) + ", " + con.escape(billingemail) + ", " +
             con.escape(billingcc) + ", " + con.escape(billingaddress) + ", " +
             con.escape(statezip) + ", " + con.escape(lineofwork) + ", " +
             con.escape(companyaddress) + ") ";
 
+        var sqlproject = "INSERT INTO tbl_project_bkp (project_id, client_id, miami_id, manila_id, data_received, target_draft_completion, draft_sent," +
+            "date_finalized, due_date, Valuation_Date, As_of, next_valuation_date, Additional_Description, fee, fee_description, billed_id, " +
+            "date_billed, invoice_number, status_id, mail_id, Comments, reminder, letter_drafted, sent_final, final_review, letter_sent, Ref)" +
+            " SELECT NULL, c.client_id, " + con.escape(consultant) + ", " + con.escape(manila) + ", " + con.escape(datareceived) + ", NULL, " +
+            con.escape(draftsent) + ", " + con.escape(datefinalized) + ", " + con.escape(datedue) + ", " + con.escape(valuationdate) + ", NULL, " +
+            con.escape(nxtval) + ", " + con.escape(additional) + ", " + con.escape(fee) + ", NULL, " + con.escape(billed) + ", " + con.escape(datebilled) + ", " +
+            con.escape(invoiceno) + ", " + con.escape(status) + ", " + con.escape(mailedby) + ", " + con.escape(comments) + ", NULL, NULL, NULL, NULL, NULL, " +
+            con.escape(ref) +
+            " FROM tbl_client_bkp c WHERE c.client_id = (SELECT max(client_id) FROM tbl_client_bkp)"
+
+        var result = ['success', 'fail'];
+        console.log("succ = " + result[0]);
         con.query(sql2, function(err, data, fields) {
             if (err) throw err;
             if (data.length <= 0) {
-                con.query(sql, function(err, result) {
+                con.query(sqlclient, function(err, result) {
                     if (err) throw err;
                     console.log("1 record inserted");
-                    res.render('addedscreen', { title: 'Success' });
+                    con.query(sqlproject, function(err, result) {
+                        if (err) throw err;
+                        console.log("1 record inserted");
+                        res.render('addedscreen', { resultData: 'success' });
+                    });
+
                 });
             } else {
                 console.log("already exists!");
-                res.render('addedscreen'); //<--temporary
+                res.render('addedscreen', { resultData: 'fail' });
             }
         })
+
 
     },
 

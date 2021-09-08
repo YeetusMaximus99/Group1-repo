@@ -9,10 +9,14 @@
 
     <%- include('partials/topbar')%>
 
-
-        <br><br><br>
-        <h2>Added Successfully to database!</h2>
-        <a href='/addproject'><button name="back2add">Add another one</button></a>
+        <%console.log(resultData) %>
+            <br><br><br>
+            <% if(resultData == 'success') {%>
+                <h2>Added Successfully to database!</h2>
+                <% }else if(resultData == 'fail'){%>
+                    <h2>Project Already Exists!</h2>
+                    <% } %>
+                        <a href='/addproject'><button name="back2add">Add another one</button></a>
 </body>
 
 </html>

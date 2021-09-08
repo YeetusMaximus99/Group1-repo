@@ -25,7 +25,7 @@
             <input type="text" name="manila"><br>
 
             <label for="receiveddate">Date Received:</label>
-            <input type="date" name="valuationdate"><br>
+            <input type="date" name="datareceived"><br>
 
             <label for="draftsent">Draft Sent:</label>
             <input type="date" name="draftsent"><br>
@@ -47,16 +47,16 @@
 
             <label for="billed">Billed or not:</label>
             <label class="radio-inline">
-                <input type="radio" name="billed" value="Yes" checked>Yes 
+                <input type="radio" name="billed" value="1" checked>Yes 
               </label>
             <label class="radio-inline">
-                <input type="radio" name="billed">Partial
+                <input type="radio" name="billed" value="2">Partial
               </label>
             <label class="radio-inline">
-                <input type="radio" name="billed">On Hold
+                <input type="radio" name="billed" value="4">On Hold
               </label>
             <label class="radio-inline">
-                <input type="radio" name="billed">N/A
+                <input type="radio" name="billed" value="5">N/A
               </label>
             <br>
 
@@ -68,13 +68,16 @@
 
             <label for="status">Status:</label>
             <label class="radio-inline">
-                <input type="radio" name="status" value="Yes" checked>Pending 
+                <input type="radio" name="status" value="1" checked>Pending 
               </label>
             <label class="radio-inline">
-                <input type="radio" name="status">Draft
+                <input type="radio" name="status" value="2">Draft
               </label>
             <label class="radio-inline">
-                <input type="radio" name="status">Finalized
+                <input type="radio" name="status" value="3">Finalized
+              </label>
+            <label class="radio-inline">
+                <input type="radio" name="status" value ="4">Draft Sent-Already Invoiced
               </label>
             <br>
 
