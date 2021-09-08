@@ -251,15 +251,16 @@
                                                                                                                                                                                 <td>
                                                                                                                                                                                     View
                                                                                                                                                                                     <br> <a href="/editproject/<%=data.client_id %>/<%=data.project_id %>">Edit</a>
-                                                                                                                                                                                    <br> Delete
-                                                                                                                                                                                    <br>
+                                                                                                                                                                                    <br> <a href="/deleteproject/<%=data.client_id %>/<%=data.project_id %>">Delete</a>
+                                                                                                                                                                                    <%= console.log("eto yung data" + data) %>
+                                                                                                                                                                                        <br>
                                                                                                                                                                                 </td>
 
                     </tr>
                     <%  i++; }) %>
                         <% } else{ %>
                             <tr>
-                                <td colspan="7">No Data Found</td>
+                                <td colspan=" 7 ">No Data Found</td>
                             </tr>
                             <% } %>
             </table>

@@ -13,5 +13,6 @@ app.get('/queries', controller.getQueries);
 //app.post('/queries', controller.postQueries);
 app.get('/editproject/:client/:project', controller.getEditProject);
 app.post('/editproject/:client/:project', controller.postEditProject);
-
+app.get('/deleteproject/:client/:project', controller.getDeleteProject);
+app.post('/deleteproject/:client/:project', controller.postDeleteProject);
 module.exports = app;

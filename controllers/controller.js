@@ -1,4 +1,6 @@
 const con = require('../database.js');
+const app = require('../routes/routes.js');
+const { render } = require('../routes/routes.js');
 
 //TODO: add to tbl_project
 //TODO: confirm fields
@@ -274,7 +276,51 @@ const controller = {
             res.render('editedscreen', { title: 'updated', infoData: info });
         });
 
-    }
+    },
+
+
+    getDeleteProject: function(req, res) {
+
+        console.log("pumasok d3");
+        var projectid = req.params.project;
+        var clientid = req.params.client;
+
+        var sql = 'SELECT * FROM tbl_project_bkp WHERE client_id = ' +
+            con.escape(clientid) + ' AND project_id = ' + con.escape(projectid);
+
+
+        con.query(sql, function(err, data, fields) {
+            if (err) throw err;
+            console.log("data =  " + data[0]);
+            res.render('deletescreen', { title: 'Delete Data', deleteData: data });
+
+        });
+    },
+
+
+    postDeleteProject: function(req, res) {
+
+        console.log("pumasok d4");
+        var clientid = req.params.client;
+        var projectid = req.params.project;
+        var info = [clientid, projectid];
+
+        console.log("client: " + clientid + ", project: " + projectid);
+
+        var sql = "DELETE FROM tbl_project_bkp WHERE client_id = " + con.escape(clientid) + " AND project_id = " + con.escape(projectid);
+
+        var sql2 = 'SELECT DISTINCT client_name FROM tbl_client_bkp ORDER BY client_name';
+        con.query(sql, function(err, result) {
+            if (err) throw err;
+            console.log("Number of records deleted: " + result.affectedRows);
+            con.query(sql2, function(err, data, fields) {
+                if (err) throw err;
+                console.log(data);
+                res.render('search', { title: 'Search', dropdownData: data });
+            });
+        });
+
+    },
 
 
 }

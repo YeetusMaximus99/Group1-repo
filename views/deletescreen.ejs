@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AMIRisk Admin</title>
+</head>
+
+<body>
+
+    <%- include('partials/topbar')%>
+
+
+        <h2>Viewing User:
+            <%=deleteData[0].client_id%> Project :
+                <%=deleteData[0].project_id%>
+        </h2>
+
+        <h3>Consultant:
+            <%= deleteData[0].miami_id %>
+        </h3>
+        <h3>Manila ID:
+            <%= deleteData[0].manila_id %>
+        </h3>
+        <h3>Date Received:
+            <%= deleteData[0].data_received %>
+        </h3>
+        <h3>Target Draft Completion:
+            <%= deleteData[0].target_draft_completion %>
+        </h3>
+        <h3>Draft Sent:
+            <%= deleteData[0].draft_sent %>
+        </h3>
+        <h3>Date Finalized:
+            <%= deleteData[0].date_finalized %>
+        </h3>
+        <h3>Due Date:
+            <%= deleteData[0].due_date %>
+        </h3>
+        <h3>Valuation Date:
+            <%= deleteData[0].Valuation_Date %>
+        </h3>
+        <h3>As of:
+            <%= deleteData[0].As_of %>
+        </h3>
+        <h3>Next Valuation Date:
+            <%= deleteData[0].next_valuation_date %>
+        </h3>
+        <h3>Additional_Description:
+            <%= deleteData[0].Additional_Description%>
+        </h3>
+        <h3>Fee:
+            <%= deleteData[0].fee%>
+        </h3>
+        <h3>Fee description:
+            <%= deleteData[0].fee_description%>
+        </h3>
+        <h3>Billed ID:
+            <%= deleteData[0].billed_id%>
+        </h3>
+        <h3>Date Billed:
+            <%= deleteData[0].date_billed%>
+        </h3>
+        <h3>Invoice Number:
+            <%= deleteData[0].invoice_number%>
+        </h3>
+
+        <form name='confirmdel' method="POST" action="/deleteproject/<%=deleteData[0].client_id %>/<%=deleteData[0].project_id %>">
+            <button type="submit">Delete</button>
+        </form>
+
+        <button onclick="goBack()">Cancel</button>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+</body>
+
+</html>

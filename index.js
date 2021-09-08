@@ -18,6 +18,8 @@ app.get('/queries', routes);
 //app.post('/queries', routes);
 app.get('/editproject/:client/:project', routes);
 app.post('/editproject/:client/:project', routes);
+app.get('/deleteproject/:client/:project', routes);
+app.post('/deleteproject/:client/:project', routes);
 //app.post('/searchresults', routes);
 
 const server = app.listen(port, () => {
