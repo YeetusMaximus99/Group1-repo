@@ -15,7 +15,9 @@ app.post('/search', routes);
 app.get('/addproject', routes);
 app.post('/addproject', routes);
 app.get('/queries', routes);
-app.post('/queries', routes);
+//app.post('/queries', routes);
+app.get('/editproject/:client/:project', routes);
+app.post('/editproject/:client/:project', routes);
 //app.post('/searchresults', routes);
 
 const server = app.listen(port, () => {

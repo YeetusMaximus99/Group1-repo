@@ -64,9 +64,10 @@ const controller = {
         fieldqueries.push(status_fld);
         var mailedby_fld = req.body.mailedby;
         fieldqueries.push(mailedby_fld);
-        //var contact_fld = req.body.contact; //TODO: enable once contacts db is in db
+        var contact_fld = req.body.contact;
+        fieldqueries.push(contact_fld);
         //from tbl_client
-        var companyadd_fld = req.body.comapnyadd;
+        var companyadd_fld = req.body.companyadd;
         fieldqueries.push(companyadd_fld);
         var billname_fld = req.body.billname;
         fieldqueries.push(billname_fld);
@@ -80,7 +81,7 @@ const controller = {
         fieldqueries.push(line_fld);
 
         console.log(srch);
-        var sql = 'SELECT c.client_name, c.project, p.Valuation_date';
+        var sql = 'SELECT p.client_id, p.project_id, c.client_name, c.project, p.Valuation_date';
         var sqltbl = ' FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
 
         for (var i = 0; i < fieldqueries.length; i++) {
@@ -116,9 +117,9 @@ const controller = {
     searchResults: function(req, res) {
         var srch = req.body.srchclients;
         console.log(srch);
-        var sql = 'SELECT c.client_name, c.project, p.Valuation_date FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
+        var sql = 'SELECT p.client_id, p.project_id, c.client_name, c.project, p.Valuation_date FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE c.client_name = ' + con.escape(srch) + ' ORDER BY	c.project';
         var sql2 = 'SELECT DISTINCT client_name FROM tbl_client_bkp ORDER BY client_name';
-        con.query(sql, function(err2, data2, fields) {
+        con.query(sql, function(err, data2, fields) {
             if (err) throw err;
             console.log(data2);
             con.query(sql2, function(err2, data, fields2) {
@@ -187,11 +188,92 @@ const controller = {
                 });
             });
         });
-        
+
     },
 
-    postQueries: function(req, res) {
-        
+    //postQueries: function(req, res) {
+
+    getEditProject: function(req, res) {
+
+        console.log("pumasok d2");
+        var clientid = req.params.client;
+        var projectid = req.params.project;
+        console.log("client: " + clientid + ", project: " + projectid);
+
+
+        var sql = 'SELECT * FROM tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id WHERE p.client_id =' +
+            con.escape(clientid) + ' AND p.project_id = ' + con.escape(projectid);
+
+        con.query(sql, function(err, data, fields) {
+            if (err) throw err;
+            console.log("data =  " + data[0]);
+            res.render('editproject', { title: 'Edit Data', editprojData: data });
+        });
+    },
+
+    postEditProject: function(req, res) {
+        var clientid = req.params.client;
+        var projectid = req.params.project;
+        var info = [clientid, projectid];
+
+
+        var valuationdate = req.body.valuationdate;
+        var nxtval = req.body.nxtval;
+        var additional = req.body.additional;
+        var consultant = req.body.consultant;
+        var manila = req.body.manila;
+        var datareceived = req.body.datareceived;
+        var draftsent = req.body.draftsent;
+        var datefinalized = req.body.finalizeddate;
+        var duedate = req.duedate;
+        var fee = req.body.fee;
+        var ref = req.body.ref;
+        var billed = req.body.billed;
+        var datebilled = req.body.datebilled;
+        var invoiceno = req.body.invoiceno;
+        var status = req.body.status;
+        var mailedby = req.body.mailedby;
+        var comments = req.body.comments;
+        //from tbl_clients
+        var contact = req.body.contactperson;
+        var companyadd = req.body.companyadd;
+        var billname = req.body.billname;
+        var billadd = req.body.billadd;
+        var statezip = req.body.statezip;
+        var billemail = req.body.billemail;
+        var billcc = req.body.billcc;
+        var line = req.body.line;
+        var clientname = req.body.clientname;
+        var projname = req.body.projname;
+
+
+
+        var sqlupdate = 'UPDATE tbl_project_bkp p JOIN tbl_client_bkp c ON p.client_id = c.client_id '
+        var sqlset = 'SET c.project = ' + con.escape(projname) + ", c.client_name = " + con.escape(clientname) +
+            ", p.Valuation_Date = " + con.escape(valuationdate) + ", p.next_valuation_date = " + con.escape(nxtval) +
+            ", p.Additional_Description = " + con.escape(additional) + ", p.miami_id = " + con.escape(consultant) +
+            ", p.manila_id = " + con.escape(manila) + ", p.data_received = " + con.escape(datareceived) +
+            ", p.draft_sent = " + con.escape(draftsent) + ", p.date_finalized = " + con.escape(datefinalized) +
+            ", p.due_date = " + con.escape(duedate) + ", p.fee = " + con.escape(fee) +
+            ", p.Ref = " + con.escape(ref) + ", p.billed_id = " + con.escape(billed) +
+            ", p.date_billed = " + con.escape(datebilled) + ", invoice_number = " + con.escape(invoiceno) +
+            ", p.status_id = " + con.escape(status) + ", p.mail_id = " + con.escape(mailedby) +
+            ", c.contact = " + con.escape(contact) + ", c.company_add = " + con.escape(companyadd) +
+            ", c.billing_name = " + con.escape(billname) + ", c.billing_address = " + con.escape(billadd) +
+            ", c.state = " + con.escape(statezip) + ", c.billing_email = " + con.escape(billemail) +
+            ", c.billing_cc = " + con.escape(billcc) + ", c.line = " + con.escape(line) +
+            ", p.Comments = " + con.escape(comments);
+
+
+        var sqlwhere = ' WHERE p.project_id = ' + con.escape(projectid) + " AND c.client_id = " + con.escape(clientid);
+        var sql = sqlupdate + sqlset + sqlwhere;
+
+        con.query(sql, function(err, result) {
+            if (err) throw err;
+            console.log(result.affectedRows + " record(s) updated");
+            res.render('editedscreen', { title: 'updated', infoData: info });
+        });
+
     }
 
 

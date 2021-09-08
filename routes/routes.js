@@ -10,6 +10,8 @@ app.post('/search', controller.postSearch);
 app.get('/addproject', controller.getAddProject);
 app.post('/addproject', controller.postAddProject);
 app.get('/queries', controller.getQueries);
-app.post('/queries', controller.postQueries);
+//app.post('/queries', controller.postQueries);
+app.get('/editproject/:client/:project', controller.getEditProject);
+app.post('/editproject/:client/:project', controller.postEditProject);
 
 module.exports = app;

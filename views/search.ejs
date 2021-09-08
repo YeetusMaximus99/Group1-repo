@@ -50,7 +50,7 @@
                 <input type="checkbox" name="manila" value=", p.manila_id">
                 <label for="manila">Assigned in Manila</label><br>
 
-                <input type="checkbox" name="datareceived" value=". p.data_received">
+                <input type="checkbox" name="datareceived" value=", p.data_received">
                 <label for="datareceived">Data Received</label><br>
 
                 <input type="checkbox" name="datefinalized" value=", p.date_finalized">
@@ -76,8 +76,7 @@
                 <input type="checkbox" name="mailedby" value=", p.mail_id">
                 <label for="mailedby">Mailed By</label><br>
 
-                <input type="checkbox" name="contact" value="contact">
-                <!--TODO: link with contacts database-->
+                <input type="checkbox" name="contact" value=", c.contact">
                 <label for="contact">Contact Person</label><br>
 
                 <input type="checkbox" name="companyadd" value=", c.company_add">
