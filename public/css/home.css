@@ -24,7 +24,7 @@ body
 	float: left;
 	padding-top: 10px;
 	padding-bottom:10px;
-	color:  #f5eec2; #f5eec2;
+	color:  #f5eec2; 
 	text-decoration: none;
 	font-size: 17px;
 	width: 20%;
@@ -88,4 +88,35 @@ tr:hover {background-color: #ddd;}
 .srchbarcont{
 	width:75%;
 	margin:auto;
+}
+.buttonscont{
+	
+	background-color:#f5eec2;
+	flex-direction: column;
+	display: table;
+	width:100%;
+	margin:auto;
+	margin-top:0px;
+}
+
+.buttons{
+	background-color:grey;
+	color:#f5eec2;
+	font-family: 'Merriweather';
+	font-weight: normal;
+	font-size: 15px;
+	width:30%;
+	padding:5px;
+	display: flex;
+  	flex-direction: column;
+  	justify-content: flex-end;
+	margin:auto;
+	
+}
+.buttons:hover{
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.table{
+	table-layout:fixed;
+	width:100%;
 }

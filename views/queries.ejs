@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 
 <head>
     <title>AMIRisk Admin</title>
@@ -9,11 +11,16 @@
 
     <%- include('partials/topbar')%>
 
-    <br><br><br>Show/hide buttons for query tables:<br><br>
-    <button onclick="hide_show_proposals_noBidResults_noEvaluationSheets()">Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS</button><br><br>
-    <button onclick="hide_show_proposals_orderedByYear()">Proposals submitted ORDERED BY YEAR</button><br><br>
-    <button onclick="hide_show_contracts_active()">Active Contracts</button><br><br>
-    <button onclick="hide_show_contracts_expired()">Expired Contracts</button><br><br>
+    
+    <div class="buttonscont">
+    <br><br><br><h1>Show/hide buttons for query tables:</h1><br><br>
+    <button class="buttons" onclick="hide_show_proposals_noBidResults_noEvaluationSheets()">Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS</button>
+    <button class="buttons" onclick="hide_show_proposals_orderedByYear()">Proposals submitted ORDERED BY YEAR</button>
+    <button class="buttons" onclick="hide_show_contracts_active()">Active Contracts</button>
+    <button class="buttons" onclick="hide_show_contracts_expired()">Expired Contracts</button>
+    
+    
+    
     
     <div id="proposals_noBidResults_noEvaluationSheets" style="display:none">
         <table border="1">
@@ -369,7 +376,7 @@
                         <% } %>
         </table>
     </div>
-
+</div>
     <!-- Hide/Show functions for query tables -->
     <script>
         // Proposals submitted with NO BID RESULTS / NO EVALUATION SHEETS
