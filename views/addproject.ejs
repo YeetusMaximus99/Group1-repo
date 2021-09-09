@@ -3,11 +3,15 @@
 
 <head>
     <title>AMIRisk Admin</title>
+    <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 </head>
 
 <body>
     <%- include('partials/topbar')%>
-        <br><br><br> Add a Project<br><br>
+        <div class="edit_body">
+        <h1> Add a Project</h1>
+        
         <form name="addaproject" method="POST" action="/addproject">
             <label for="clientname">Client Name:</label>
             <input type="text" name="clientname" required><br>
@@ -113,6 +117,7 @@
 
             <button type="submit">Add</button>
         </form>
+      </div>
 </body>
 
 </html>

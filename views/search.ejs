@@ -20,12 +20,15 @@
 
     <head>
         <title>AMIRisk Admin</title>
+        <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
     </head>
 
     <body>
         <h1>Search</h1><br><br>
+        <div class="search_body">
         <form method="POST" action="/search" class="srchbar">
-            <div>
+            <div class="srchoptions">
                 <label for="srchclients">Select client: </label><br>
                 <select name="srchclients" id="srchclients">
                 <option selected="selected">--SELECT CLIENT--</option>
@@ -37,7 +40,7 @@
             </select>
             </div>
             <br>
-            <div>
+            <div class="checks">
                 <input type="checkbox" name="nxtval" value=", p.next_valuation_date">
                 <label for="nxtval">Next Valuation Date</label><br>
 
@@ -100,6 +103,7 @@
             <br>
             <button type="submit" class="srchbutton">Search</button>
         </form>
+    </div>
     </body>
 
     </html>

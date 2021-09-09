@@ -6,7 +6,9 @@ const routes = require('./routes/routes.js');
 var cons = require('consolidate');
 
 app.use(express.urlencoded({ extended: true }));
+
 app.set('views', path.join(__dirname, '/views'));
+app.use(express.static('public'));
 //app.set('layout', './partials/topbar')
 app.set('view engine', 'ejs');
 app.get('/', routes)
