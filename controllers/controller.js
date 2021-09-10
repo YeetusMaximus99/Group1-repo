@@ -153,6 +153,7 @@ const controller = {
         var consultant = req.body.consultant;
         var manila = req.body.manila;
         var datareceived = req.body.datareceived;
+        var target_draft_completion = req.body.target_draft_completion;
         var draftsent = req.body.draftsent;
         var datefinalized = req.body.finalizeddate;
         var datedue = req.body.duedate;
@@ -180,7 +181,7 @@ const controller = {
         var sqlproject = "INSERT INTO tbl_project_bkp (project_id, client_id, miami_id, manila_id, data_received, target_draft_completion, draft_sent," +
             "date_finalized, due_date, Valuation_Date, As_of, next_valuation_date, Additional_Description, fee, fee_description, billed_id, " +
             "date_billed, invoice_number, status_id, mail_id, Comments, reminder, letter_drafted, sent_final, final_review, letter_sent, Ref)" +
-            " SELECT NULL, c.client_id, " + con.escape(consultant) + ", " + con.escape(manila) + ", " + con.escape(datareceived) + ", NULL, " +
+            " SELECT NULL, c.client_id, " + con.escape(consultant) + ", " + con.escape(manila) + ", " + con.escape(datareceived) + ", NULL, " + con.escape(target_draft_completion) + ", " +
             con.escape(draftsent) + ", " + con.escape(datefinalized) + ", " + con.escape(datedue) + ", " + con.escape(valuationdate) + ", NULL, " +
             con.escape(nxtval) + ", " + con.escape(additional) + ", " + con.escape(fee) + ", NULL, " + con.escape(billed) + ", " + con.escape(datebilled) + ", " +
             con.escape(invoiceno) + ", " + con.escape(status) + ", " + con.escape(mailedby) + ", " + con.escape(comments) + ", NULL, NULL, NULL, NULL, NULL, " +
