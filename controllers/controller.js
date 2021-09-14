@@ -288,19 +288,48 @@ const controller = {
         var info = [clientid, projectid];
 
 
-        var valuationdate = req.body.valuationdate;
-        var nxtval = req.body.nxtval;
+        if (req.body.valuationdate == '')
+            var valuationdate = '0000-00-00';
+        else
+            var valuationdate = req.body.valuationdate;
+        
+        if (req.body.nxtval == '')
+            var nxtval = '0000-00-00';
+        else
+            var nxtval = req.body.nxtval;
+
         var additional = req.body.additional;
         var consultant = req.body.consultant;
         var manila = req.body.manila;
-        var datareceived = req.body.datareceived;
-        var draftsent = req.body.draftsent;
-        var datefinalized = req.body.finalizeddate;
-        var duedate = req.duedate;
+        
+        if (req.body.datareceived == '')
+            var datareceived = '0000-00-00';
+        else
+            var datareceived = req.body.datareceived;
+        
+        if (req.body.draftsent == '')
+            var draftsent = '0000-00-00';
+        else
+            var draftsent = req.body.draftsent;
+
+        if (req.body.finalizeddate == '')
+            var datefinalized = '0000-00-00';
+        else
+            var datefinalized = req.body.finalizeddate;
+
+        if (req.body.duedate == '')
+            var duedate = '0000-00-00';
+        else
+            var duedate = req.body.duedate;
+        
         var fee = req.body.fee;
-        var ref = req.body.ref;
+        var ref = req.body.referenceno;
         var billed = req.body.billed;
-        var datebilled = req.body.datebilled;
+        
+        if (req.body.billeddate == '')
+            var datebilled = '0000-00-00';
+        else
+            var datebilled = req.body.billeddate;
         var invoiceno = req.body.invoiceno;
         var status = req.body.status;
         var mailedby = req.body.mailedby;
