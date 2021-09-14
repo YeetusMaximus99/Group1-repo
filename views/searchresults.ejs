@@ -3,11 +3,14 @@
 
 <head>
     <title>AMIRisk Admin</title>
+    <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 </head>
 
 <body>
     <%- include('partials/topbar')%>
         <h1>Search Results</h1><br><br>
+        <div class="srchbarcont">
         <form method="POST" action="/search" class="srchbar">
             <label for="srchclients">Select client: </label><br>
             <select name="srchclients" id="srchclients">
@@ -20,6 +23,7 @@
             </select>
             <button type="submit" class="srchbutton">Search</button>
         </form>
+        </div>
         <style>
             .srchbar {
                 display: flex;
@@ -116,6 +120,7 @@
                                                                                                                                                                     <% if(fieldData[18]==1) {%>
                                                                                                                                                                         <th>Line of Work</th>
                                                                                                                                                                         <% } %>
+                                                                                                                                                                    <th>Actions To do</th>
 
 
                 </tr>
@@ -264,6 +269,7 @@
                             </tr>
                             <% } %>
             </table>
+            
 </body>
 
 </html>

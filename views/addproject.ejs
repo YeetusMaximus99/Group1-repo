@@ -3,119 +3,124 @@
 
 <head>
     <title>AMIRisk Admin</title>
+    <link rel="stylesheet" type="text/css" media="all" href="/css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 </head>
 
 <body>
     <%- include('partials/topbar')%>
-        <br><br><br> Add a Project<br><br>
-        <form name="addaproject" method="POST" action="/addproject">
-            <label for="clientname">Client Name:</label>
-            <input type="text" name="clientname" required><br>
+        <div class="edit_body">
+            <h1> Add a Project</h1>
 
-            <label for="projname">Project Name:</label>
-            <input type="text" name="projname" required><br>
+            <form name="addaproject" method="POST" action="/addproject">
+                <label for="clientname">Client Name:</label>
+                <input type="text" name="clientname" required><br>
 
-            <label for="valuationdate">Valuation Date:</label>
-            <input type="date" name="valuationdate"><br>
+                <label for="projname">Project Name:</label>
+                <input type="text" name="projname" required><br>
 
-            <label for="consultant">Consultant:</label>
-            <input type="text" name="consultant"><br>
+                <label for="valuationdate">Valuation Date:</label>
+                <input type="date" name="valuationdate"><br>
 
-            <label for="manila">Assigned in Manila:</label>
-            <input type="text" name="manila"><br>
+                <label for="consultant">Consultant:</label>
+                <input type="text" name="consultant"><br>
 
-            <label for="receiveddate">Date Received:</label>
-            <input type="date" name="datareceived"><br>
+                <label for="manila">Assigned in Manila:</label>
+                <input type="text" name="manila"><br>
 
-            <label for="target_draft_completion">Target Draft Completion:</label>
-            <input type="date" name="targetdraft"><br>
+                <label for="receiveddate">Date Received:</label>
+                <input type="date" name="datareceived"><br>
 
-            <label for="draftsent">Draft Sent:</label>
-            <input type="date" name="draftsent"><br>
+                <label for="target_draft_completion">Target Draft Completion:</label>
+                <input type="date" name="targetdraft"><br>
 
-            <label for="finalizeddate">Date Finalized:</label>
-            <input type="date" name="finalizeddate"><br>
+                <label for="draftsent">Draft Sent:</label>
+                <input type="date" name="draftsent"><br>
 
-            <label for="duedate">Due Date:</label>
-            <input type="date" name="duedate"><br>
+                <label for="finalizeddate">Date Finalized:</label>
+                <input type="date" name="finalizeddate"><br>
 
-            <label for="nxtvaluationdate">Next Valuation Date:</label>
-            <input type="date" name="nxtvaluationdate"><br>
+                <label for="duedate">Due Date:</label>
+                <input type="date" name="duedate"><br>
 
-            <label for="fee">Fee:</label>
-            <input type="text" name="fee"><br>
+                <label for="nxtvaluationdate">Next Valuation Date:</label>
+                <input type="date" name="nxtvaluationdate"><br>
 
-            <label for="reference">Reference Number:</label>
-            <input type="text" name="reference"><br>
+                <label for="fee">Fee:</label>
+                <input type="text" name="fee"><br>
 
-            <label for="billed">Billed or not:</label>
-            <label class="radio-inline">
+                <label for="reference">Reference Number:</label>
+                <input type="text" name="reference"><br>
+
+                <label for="billed">Billed or not:</label>
+                <label class="radio-inline">
                 <input type="radio" name="billed" value="1" checked>Yes 
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="billed" value="2">Partial
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="billed" value="4">On Hold
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="billed" value="5">N/A
               </label>
-            <br>
+                <br>
 
-            <label for="billeddate">Date Billed:</label>
-            <input type="date" name="billeddate"><br>
+                <label for="billeddate">Date Billed:</label>
+                <input type="date" name="billeddate"><br>
 
-            <label for="invoiceno">Invoice No.:</label>
-            <input type="text" name="invoiceno"><br>
+                <label for="invoiceno">Invoice No.:</label>
+                <input type="text" name="invoiceno"><br>
 
-            <label for="status">Status:</label>
-            <label class="radio-inline">
+                <label for="status">Status:</label>
+                <label class="radio-inline">
                 <input type="radio" name="status" value="1" checked>Pending 
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="status" value="2">Draft
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="status" value="3">Finalized
               </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
                 <input type="radio" name="status" value ="4">Draft Sent-Already Invoiced
               </label>
-            <br>
+                <br>
 
-            <label for="contactperson">Contact Person:</label>
-            <textarea name="contactperson" required></textarea><br>
+                <label for="contactperson">Contact Person:</label>
+                <textarea name="contactperson" required></textarea><br>
 
-            <label for="companyaddress">Company Address:</label>
-            <textarea name="companyaddress"></textarea><br>
+                <label for="companyaddress">Company Address:</label>
+                <textarea name="companyaddress"></textarea><br>
 
-            <label for="billingname">Billing Name:</label>
-            <textarea name="billingname" required></textarea><br>
+                <label for="billingname">Billing Name:</label>
+                <textarea name="billingname" required></textarea><br>
 
-            <label for="billingaddress">Billing Address:</label>
-            <textarea name="billingaddress" required></textarea><br>
+                <label for="billingaddress">Billing Address:</label>
+                <textarea name="billingaddress" required></textarea><br>
 
-            <label for="statezip">State Zip:</label>
-            <input type="text" name="statezip"><br>
+                <label for="statezip">State Zip:</label>
+                <input type="text" name="statezip"><br>
 
-            <label for="billingemail">Billing Email:</label>
-            <input type="text" name="billingemail" required><br>
+                <label for="billingemail">Billing Email:</label>
+                <input type="text" name="billingemail" required><br>
 
-            <label for="billingcc">Billing CC:</label>
-            <input type="text" name="billingcc" required><br>
+                <label for="billingcc">Billing CC:</label>
+                <input type="text" name="billingcc" required><br>
 
-            <label for="lineofbusiness">Line of Business:</label>
-            <input type="text" name="lineofbusiness"><br>
+                <label for="lineofbusiness">Line of Business:</label>
+                <input type="text" name="lineofbusiness"><br>
 
-            <label for="mailedby">Mailed/Emailed by:</label>
-            <input type="text" name="mailedby"><br>
+                <label for="mailedby">Mailed/Emailed by:</label>
+                <input type="text" name="mailedby"><br>
 
-            <label for="comments">Comments:</label>
-            <textarea name="comments"></textarea><br>
+                <label for="comments">Comments:</label>
+                <textarea name="comments"></textarea><br>
 
-            <button type="submit">Add</button>
-        </form>
+                <button type="submit">Add</button>
+            </form>
+        </div>
 </body>
 
 </html>

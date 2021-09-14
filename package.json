@@ -1,7 +1,6 @@
 {
   "name": "node-mysql",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,15 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.12",
     "swig": "^1.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YeetusMaximus99/Group1-repo.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/YeetusMaximus99/Group1-repo/issues"
+  },
+  "homepage": "https://github.com/YeetusMaximus99/Group1-repo#readme",
+  "description": ""
 }
