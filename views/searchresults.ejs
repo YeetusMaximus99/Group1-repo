@@ -34,8 +34,9 @@
                 <tr>
                     <th>Client Name</th>
                     <th>Project</th>
+                    <th>Valuation Date</th>
                     <% if(fieldData[0]==1) {%>
-                        <th>Valuation Date</th>
+                        <th>Next Valuation Date</th>
                         <% } %>
 
                             <% if(fieldData[1]==1) {%>
@@ -128,9 +129,12 @@
                         <td>
                             <%=data.project %>
                         </td>
+                        <td>
+                            <%=data.Valuation_date %>
+                        </td>
                         <% if( fieldData[0]==1) {%>
                             <td>
-                                <%=data.Valuation_date %>
+                                <%=data.next_valuation_date %>
                             </td>
                             <% } %>
 
