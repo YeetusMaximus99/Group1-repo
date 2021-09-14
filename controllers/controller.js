@@ -153,22 +153,26 @@ const controller = {
         var consultant = req.body.consultant;
         var manila = req.body.manila;
         var datareceived = req.body.datareceived;
-        var target_draft_completion = req.body.target_draft_completion;
+        if (req.body.targetdraft = '')
+            var target_draft_completion = '0000-00-00';
+        else
+            var target_draft_completion = req.body.targetdraft;
+
         var draftsent = req.body.draftsent;
         var datefinalized = req.body.finalizeddate;
         var datedue = req.body.duedate;
         var nxtval = req.body.nxtvaluationdate;
         var fee = req.body.fee;
-        var ref = req.body.ref;
+        var reference = req.body.reference;
         var billed = req.body.billed;
         var datebilled = req.body.billeddate;
         var invoiceno = req.body.invoiceno;
         var status = req.body.status;
-        var additional = req.body.additional;
+        //var additional = req.body.additional;
         var mailedby = req.body.mailedby;
         var comments = req.body.comments;
 
-
+        console.log("REF IS " + reference);
 
         var sql2 = "SELECT * FROM tbl_client_bkp WHERE client_name LIKE" + con.escape(clientname) + " AND project LIKE " + con.escape(projname);
         var sqlclient = "INSERT INTO tbl_client_bkp VALUES ( NULL, " + con.escape(clientname) + ", " +
@@ -178,14 +182,14 @@ const controller = {
             con.escape(statezip) + ", " + con.escape(lineofwork) + ", " +
             con.escape(companyaddress) + ") ";
 
-        var sqlproject = "INSERT INTO tbl_project_bkp (project_id, client_id, miami_id, manila_id, data_received, target_draft_completion, draft_sent," +
+        var sqlproject = "INSERT INTO tbl_project_bkp (project_id, client_id, miami_id, manila_id, data_received, target_draft_completion, draft_sent, " +
             "date_finalized, due_date, Valuation_Date, As_of, next_valuation_date, Additional_Description, fee, fee_description, billed_id, " +
             "date_billed, invoice_number, status_id, mail_id, Comments, reminder, letter_drafted, sent_final, final_review, letter_sent, Ref)" +
-            " SELECT NULL, c.client_id, " + con.escape(consultant) + ", " + con.escape(manila) + ", " + con.escape(datareceived) + ", NULL, " + con.escape(target_draft_completion) + ", " +
-            con.escape(draftsent) + ", " + con.escape(datefinalized) + ", " + con.escape(datedue) + ", " + con.escape(valuationdate) + ", NULL, " +
-            con.escape(nxtval) + ", " + con.escape(additional) + ", " + con.escape(fee) + ", NULL, " + con.escape(billed) + ", " + con.escape(datebilled) + ", " +
-            con.escape(invoiceno) + ", " + con.escape(status) + ", " + con.escape(mailedby) + ", " + con.escape(comments) + ", NULL, NULL, NULL, NULL, NULL, " +
-            con.escape(ref) +
+            " SELECT NULL, c.client_id, " + con.escape(consultant) + ", " + con.escape(manila) + ", " + con.escape(datareceived) + ", " + con.escape(target_draft_completion) + ", " +
+            con.escape(draftsent) + ", " + con.escape(datefinalized) + ", " + con.escape(datedue) + ", " + con.escape(valuationdate) + ", '', " +
+            con.escape(nxtval) + ", '', " + con.escape(fee) + ", '', " + con.escape(billed) + ", " + con.escape(datebilled) + ", " +
+            con.escape(invoiceno) + ", " + con.escape(status) + ", " + con.escape(mailedby) + ", " + con.escape(comments) + ", '', '', '', '', '', " +
+            con.escape(reference) +
             " FROM tbl_client_bkp c WHERE c.client_id = (SELECT max(client_id) FROM tbl_client_bkp)"
 
         var result = ['success', 'fail'];
