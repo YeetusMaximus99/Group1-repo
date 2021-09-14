@@ -9,13 +9,7 @@ var cons = require('consolidate');
 app.use(express.urlencoded({ extended: true }));
 
 app.set('views', path.join(__dirname, '/views'));
-<<<<<<< HEAD
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-=======
 app.use(express.static('public'));
->>>>>>> 4d1c47cc10780b5417ea29c851d81c6bed56275c
 //app.set('layout', './partials/topbar')
 app.set('view engine', 'ejs');
 app.get('/', routes)
