@@ -153,7 +153,7 @@ const controller = {
         var consultant = req.body.consultant;
         var manila = req.body.manila;
         var datareceived = req.body.datareceived;
-        if (req.body.targetdraft = '')
+        if (req.body.targetdraft == '')
             var target_draft_completion = '0000-00-00';
         else
             var target_draft_completion = req.body.targetdraft;
@@ -172,7 +172,7 @@ const controller = {
         var mailedby = req.body.mailedby;
         var comments = req.body.comments;
 
-        console.log("REF IS " + reference);
+        console.log("draft IS " + target_draft_completion);
 
         var sql2 = "SELECT * FROM tbl_client_bkp WHERE client_name LIKE" + con.escape(clientname) + " AND project LIKE " + con.escape(projname);
         var sqlclient = "INSERT INTO tbl_client_bkp VALUES ( NULL, " + con.escape(clientname) + ", " +

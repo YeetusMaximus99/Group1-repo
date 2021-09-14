@@ -3,7 +3,7 @@
 
 <head>
     <title>AMIRisk Admin</title>
-    <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/home.css">
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 </head>
 
@@ -11,18 +11,7 @@
     <%- include('partials/topbar')%>
         <h1>Search Results</h1><br><br>
         <div class="srchbarcont">
-        <form method="POST" action="/search" class="srchbar">
-            <label for="srchclients">Select client: </label><br>
-            <select name="srchclients" id="srchclients">
-                <option selected="selected">--SELECT CLIENT--</option>
-                <% for(var i=0; i < dropdownData.length; i++) { %>
-                <option>
-                    <%= dropdownData[i].client_name %>
-                </option>
-              <%}%>
-            </select>
-            <button type="submit" class="srchbutton">Search</button>
-        </form>
+
         </div>
         <style>
             .srchbar {
@@ -120,7 +109,7 @@
                                                                                                                                                                     <% if(fieldData[18]==1) {%>
                                                                                                                                                                         <th>Line of Work</th>
                                                                                                                                                                         <% } %>
-                                                                                                                                                                    <th>Actions To do</th>
+                                                                                                                                                                            <th>Actions To do</th>
 
 
                 </tr>
@@ -269,7 +258,7 @@
                             </tr>
                             <% } %>
             </table>
-            
+
 </body>
 
 </html>
