@@ -84,33 +84,36 @@
                                                                                                                 <% } %>
 
                                                                                                                     <% if(fieldData[12]==1) {%>
-                                                                                                                        <th>Contact</th>
+                                                                                                                        <th>Comments</th>
                                                                                                                         <% } %>
-
                                                                                                                             <% if(fieldData[13]==1) {%>
-                                                                                                                                <th>Billing Name</th>
+                                                                                                                                <th>Contact</th>
                                                                                                                                 <% } %>
 
                                                                                                                                     <% if(fieldData[14]==1) {%>
-                                                                                                                                        <th>Company Address</th>
+                                                                                                                                        <th>Billing Name</th>
                                                                                                                                         <% } %>
 
                                                                                                                                             <% if(fieldData[15]==1) {%>
-                                                                                                                                                <th>Billing Address</th>
+                                                                                                                                                <th>Company Address</th>
                                                                                                                                                 <% } %>
 
                                                                                                                                                     <% if(fieldData[16]==1) {%>
-                                                                                                                                                        <th>Billing Email</th>
+                                                                                                                                                        <th>Billing Address</th>
                                                                                                                                                         <% } %>
 
                                                                                                                                                             <% if(fieldData[17]==1) {%>
-                                                                                                                                                                <th>Billing CC</th>
+                                                                                                                                                                <th>Billing Email</th>
                                                                                                                                                                 <% } %>
 
                                                                                                                                                                     <% if(fieldData[18]==1) {%>
-                                                                                                                                                                        <th>Line of Work</th>
+                                                                                                                                                                        <th>Billing CC</th>
                                                                                                                                                                         <% } %>
-                                                                                                                                                                            <th>Actions To do</th>
+
+                                                                                                                                                                            <% if(fieldData[19]==1) {%>
+                                                                                                                                                                                <th>Line of Work</th>
+                                                                                                                                                                                <% } %>
+                                                                                                                                                                                    <th>Actions To do</th>
 
 
                 </tr>
@@ -206,19 +209,19 @@
 
                                                                                                                         <% if( fieldData[12]==1) {%>
                                                                                                                             <td>
-                                                                                                                                <%=data.contact %>
+                                                                                                                                <%=data.Comments %>
                                                                                                                             </td>
                                                                                                                             <% } %>
 
                                                                                                                                 <% if( fieldData[13]==1) {%>
                                                                                                                                     <td>
-                                                                                                                                        <%=data.billing_name %>
+                                                                                                                                        <%=data.contact %>
                                                                                                                                     </td>
                                                                                                                                     <% } %>
 
                                                                                                                                         <% if( fieldData[14]==1) {%>
                                                                                                                                             <td>
-                                                                                                                                                <%=data.billing_address %>
+                                                                                                                                                <%=data.billing_name %>
                                                                                                                                             </td>
                                                                                                                                             <% } %>
 
@@ -230,29 +233,35 @@
 
                                                                                                                                                         <% if( fieldData[16]==1) {%>
                                                                                                                                                             <td>
-                                                                                                                                                                <%=data.billing_email %>
+                                                                                                                                                                <%=data.billing_address %>
                                                                                                                                                             </td>
                                                                                                                                                             <% } %>
 
                                                                                                                                                                 <% if( fieldData[17]==1) {%>
                                                                                                                                                                     <td>
-                                                                                                                                                                        <%=data.billing_cc %>
+                                                                                                                                                                        <%=data.billing_email %>
                                                                                                                                                                     </td>
                                                                                                                                                                     <% } %>
 
                                                                                                                                                                         <% if( fieldData[18]==1) {%>
                                                                                                                                                                             <td>
-                                                                                                                                                                                <%=data.line %>
+                                                                                                                                                                                <%=data.billing_cc %>
                                                                                                                                                                             </td>
                                                                                                                                                                             <% } %>
 
-                                                                                                                                                                                <td>
-                                                                                                                                                                                    View
-                                                                                                                                                                                    <br> <a href="/editproject/<%=data.client_id %>/<%=data.project_id %>">Edit</a>
-                                                                                                                                                                                    <br> <a href="/deleteproject/<%=data.client_id %>/<%=data.project_id %>">Delete</a>
-                                                                                                                                                                                    <%= console.log("eto yung data" + data) %>
-                                                                                                                                                                                        <br>
-                                                                                                                                                                                </td>
+                                                                                                                                                                                <% if( fieldData[19]==1) {%>
+                                                                                                                                                                                    <td>
+                                                                                                                                                                                        <%=data.line %>
+                                                                                                                                                                                    </td>
+                                                                                                                                                                                    <% } %>
+
+                                                                                                                                                                                        <td>
+                                                                                                                                                                                            View
+                                                                                                                                                                                            <br> <a href="/editproject/<%=data.client_id %>/<%=data.project_id %>">Edit</a>
+                                                                                                                                                                                            <br> <a href="/deleteproject/<%=data.client_id %>/<%=data.project_id %>">Delete</a>
+                                                                                                                                                                                            <%= console.log("eto yung data" + data) %>
+                                                                                                                                                                                                <br>
+                                                                                                                                                                                        </td>
 
                     </tr>
                     <%  i++; }) %>

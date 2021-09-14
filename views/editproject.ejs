@@ -3,128 +3,128 @@
 
 <head>
     <title>AMIRisk Admin</title>
-    <link rel = "stylesheet" type = "text/css" media = "all" href = "/css/home.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/home.css">
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
 </head>
 
 <body onload="initradio()">
 
     <%- include('partials/topbar')%>
-    <div class="edit_body">
-        <h2>Editing client
-            <%=editprojData[0].client_id%> project
-                <%=editprojData[0].project_id%>
-        </h2>
+        <div class="edit_body">
+            <h2>Editing client
+                <%=editprojData[0].client_id%> project
+                    <%=editprojData[0].project_id%>
+            </h2>
 
-        <form name="editproj" method="POST" action="/editproject/<%=editprojData[0].client_id%>/<%=editprojData[0].project_id%>">
-            <label for="clientname">Client Name:</label>
-            <input type="text" name="clientname" value="<%=editprojData[0].client_name%>"><br>
+            <form name="editproj" method="POST" action="/editproject/<%=editprojData[0].client_id%>/<%=editprojData[0].project_id%>">
+                <label for="clientname">Client Name:</label>
+                <input type="text" name="clientname" value="<%=editprojData[0].client_name%>"><br>
 
-            <label for="projname">Project Name:</label>
-            <input type="text" name="projname" value="<%=editprojData[0].project%>"><br>
+                <label for="projname">Project Name:</label>
+                <input type="text" name="projname" value="<%=editprojData[0].project%>"><br>
 
-            <label for="valuationdate">Valuation Date:</label>
-            <input type="date" name="valuationdate" value="<%=editprojData[0].Valuation_Date%>"><br>
+                <label for="valuationdate">Valuation Date:</label>
+                <input type="date" name="valuationdate" value="<%=editprojData[0].Valuation_Date%>"><br>
 
-            <label for="nxtvaluationdate ">Next Valuation Date:</label>
-            <input type="date" name="nxtval" value="<%=editprojData[0].next_valuation_date%>"><br>
+                <label for="nxtvaluationdate ">Next Valuation Date:</label>
+                <input type="date" name="nxtval" value="<%=editprojData[0].next_valuation_date%>"><br>
 
-            <label for="consultant">Additional Description:</label>
-            <input type="text" name="additional" value="<%=editprojData[0].Additional_Description%>"><br>
+                <label for="consultant">Additional Description:</label>
+                <input type="text" name="additional" value="<%=editprojData[0].Additional_Description%>"><br>
 
-            <label for="consultant">Consultant:</label>
-            <input type="text" name="consultant" value="<%=editprojData[0].miami_id%>"><br>
+                <label for="consultant">Consultant:</label>
+                <input type="text" name="consultant" value="<%=editprojData[0].miami_id%>"><br>
 
-            <label for="manila">Assigned in Manila:</label>
-            <input type="text" name="manila" value="<%=editprojData[0].manila_id%>"><br>
+                <label for="manila">Assigned in Manila:</label>
+                <input type="text" name="manila" value="<%=editprojData[0].manila_id%>"><br>
 
-            <label for="receiveddate">Data Received:</label>
-            <input type="date" name="datareceived" value="<%=editprojData[0].data_received%>"><br>
+                <label for="receiveddate">Data Received:</label>
+                <input type="date" name="datareceived" value="<%=editprojData[0].data_received%>"><br>
 
-            <label for="draftsent">Draft Sent:</label>
-            <input type="date" name="draftsent" value="<%=editprojData[0].draft_sent%>"><br>
+                <label for="draftsent">Draft Sent:</label>
+                <input type="date" name="draftsent" value="<%=editprojData[0].draft_sent%>"><br>
 
-            <label for="finalizeddate">Date Finalized:</label>
-            <input type="date" name="finalizeddate" value="<%=editprojData[0].date_finalized%>"><br>
+                <label for="finalizeddate">Date Finalized:</label>
+                <input type="date" name="finalizeddate" value="<%=editprojData[0].date_finalized%>"><br>
 
-            <label for="duedate">Due Date:</label>
-            <input type="date" name="duedate" value=" <%=editprojData[0].due_date%>" "><br>
+                <label for="duedate">Due Date:</label>
+                <input type="date" name="duedate" value=" <%=editprojData[0].due_date%>" "><br>
 
-            <label for="fee">Fee:</label>
-            <input type="text" name="fee" value="<%=editprojData[0].fee%>"><br>
+            <label for="fee ">Fee:</label>
+            <input type="text " name="fee " value="<%=editprojData[0].fee%>"><br>
 
-            <label for="referenceno">Reference No.:</label>
-            <input type="text" name="referenceno" value="<%=editprojData[0].Ref%>"><br>
+                <label for="referenceno">Reference No.:</label>
+                <input type="text" name="referenceno" value="<%=editprojData[0].Ref%>"><br>
 
-            <label for="billed">Billed or not:</label>
-            <label class="radio-inline">
+                <label for="billed">Billed or not:</label>
+                <label class="radio-inline">
             <input type="radio" name="billed" id="yes" value="1">Yes 
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="billed" id="partial" value="2">Partial
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="billed" id="onhold" value="4" >On Hold
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="billed" id="n/a" value="5">N/A
           </label>
-            <br>
+                <br>
 
-            <label for="billeddate">Date Billed:</label>
-            <input type="date" name="billeddate" value="<%=editprojData[0].date_billed%>"><br>
+                <label for="billeddate">Date Billed:</label>
+                <input type="date" name="billeddate" value="<%=editprojData[0].date_billed%>"><br>
 
-            <label for="invoiceno">Invoice No.:</label>
-            <input type="text" name="invoiceno" value="<%=editprojData[0].invoice_number%>"><br>
+                <label for="invoiceno">Invoice No.:</label>
+                <input type="text" name="invoiceno" value="<%=editprojData[0].invoice_number%>"><br>
 
-            <label for="status">Status:</label>
-            <label class="radio-inline">
+                <label for="status">Status:</label>
+                <label class="radio-inline">
             <input type="radio" name="status" id="pending" value="1">Pending 
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="status" id="draft" value ="2">Draft
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="status" id="finalized" value ="3">Finalized
           </label>
-            <label class="radio-inline">
+                <label class="radio-inline">
             <input type="radio" name="status" id="invoiced" value ="4">Draft Sent-Already Invoiced
           </label>
-            <br>
+                <br>
 
-            <label for="contactperson">Contact Person:</label>
-            <textarea id="contactperson" name="contactperson"></textarea><br>
+                <label for="contactperson">Contact Person:</label>
+                <textarea id="contactperson" name="contactperson"></textarea><br>
 
-            <label for=" companyaddress ">Company Address:</label>
-            <textarea id="companyaddress" name="companyadd"></textarea><br>
+                <label for=" companyaddress ">Company Address:</label>
+                <textarea id="companyaddress" name="companyadd"></textarea><br>
 
-            <label for="billingname">Billing Name:</label>
-            <textarea id="billingname" name="billname"></textarea><br>
+                <label for="billingname">Billing Name:</label>
+                <textarea id="billingname" name="billname"></textarea><br>
 
-            <label for="billingaddress">Billing Address:</label>
-            <textarea id="billingaddress" name="billaddress"></textarea><br>
+                <label for="billingaddress">Billing Address:</label>
+                <textarea id="billingaddress" name="billaddress"></textarea><br>
 
-            <label for="statezip">State Zip:</label>
-            <input type="text" name="statezip" value="<%=editprojData[0].state%>"><br>
+                <label for="statezip">State Zip:</label>
+                <input type="text" name="statezip" value="<%=editprojData[0].state%>"><br>
 
-            <label for="billingemail">Billing Email:</label>
-            <input type="text" name="billemail" value="<%=editprojData[0].billing_email%>"><br>
+                <label for="billingemail">Billing Email:</label>
+                <input type="text" name="billemail" value="<%=editprojData[0].billing_email%>"><br>
 
-            <label for="billingcc">Billing CC:</label>
-            <input type="text" name="billcc" value="<%=editprojData[0].billing_cc%>"><br>
+                <label for="billingcc">Billing CC:</label>
+                <input type="text" name="billcc" value="<%=editprojData[0].billing_cc%>"><br>
 
-            <label for="lineofbusiness">Line of Business:</label>
-            <input type="text" name="line" value="<%=editprojData[0].line%>"><br>
+                <label for="lineofbusiness">Line of Business:</label>
+                <input type="text" name="line" value="<%=editprojData[0].line%>"><br>
 
-            <label for="mailedby">Mailed/Emailed by:</label>
-            <input type="text" name="mailedby" value="<%=editprojData[0].mail_id%>"><br>
+                <label for="mailedby">Mailed/Emailed by:</label>
+                <input type="text" name="mailedby" value="<%=editprojData[0].mail_id%>"><br>
 
-            <label for="comments">Comments:</label>
-            <textarea id="comments" name="comments"></textarea><br>
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments"></textarea><br>
 
-            <button type="submit">Update</button>
-        </form>
-  </div>
+                <button type="submit">Update</button>
+            </form>
+        </div>
 
 </body>
 
@@ -159,6 +159,6 @@
         document.getElementById("companyaddress").defaultValue = editarr.company_add;
         document.getElementById("billingname").defaultValue = editarr.billing_name;
         document.getElementById("billingaddress").defaultValue = editarr.billing_address;
-        document.getElementById("comments").defaultValue = editarr.comments;
+        document.getElementById("comments").defaultValue = editarr.Comments;
     }
 </script>

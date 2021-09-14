@@ -66,9 +66,11 @@ const controller = {
         fieldqueries.push(status_fld);
         var mailedby_fld = req.body.mailedby;
         fieldqueries.push(mailedby_fld);
+        var comments_fld = req.body.comments;
+        fieldqueries.push(comments_fld);
+        //from tbl_client
         var contact_fld = req.body.contact;
         fieldqueries.push(contact_fld);
-        //from tbl_client
         var companyadd_fld = req.body.companyadd;
         fieldqueries.push(companyadd_fld);
         var billname_fld = req.body.billname;
@@ -169,17 +171,17 @@ const controller = {
             var draftsent = '0000-00-00';
         else
             var draftsent = req.body.draftsent;
-        
+
         if (req.body.finalizeddate == '')
             var datefinalized = '0000-00-00';
         else
             var datefinalized = req.body.finalizeddate;
-        
+
         if (req.body.duedate == '')
             var datedue = '0000-00-00';
         else
             var datedue = req.body.duedate;
-        
+
         if (req.body.nxtvaluationdate == '')
             var nxtval = '0000-00-00';
         else
@@ -277,7 +279,7 @@ const controller = {
 
         con.query(sql, function(err, data, fields) {
             if (err) throw err;
-            console.log("data =  " + data[0]);
+            console.log("comment =  " + data[0].Comments);
             res.render('editproject', { title: 'Edit Data', editprojData: data });
         });
     },
@@ -292,7 +294,7 @@ const controller = {
             var valuationdate = '0000-00-00';
         else
             var valuationdate = req.body.valuationdate;
-        
+
         if (req.body.nxtval == '')
             var nxtval = '0000-00-00';
         else
@@ -301,12 +303,12 @@ const controller = {
         var additional = req.body.additional;
         var consultant = req.body.consultant;
         var manila = req.body.manila;
-        
+
         if (req.body.datareceived == '')
             var datareceived = '0000-00-00';
         else
             var datareceived = req.body.datareceived;
-        
+
         if (req.body.draftsent == '')
             var draftsent = '0000-00-00';
         else
@@ -321,11 +323,11 @@ const controller = {
             var duedate = '0000-00-00';
         else
             var duedate = req.body.duedate;
-        
+
         var fee = req.body.fee;
         var ref = req.body.referenceno;
         var billed = req.body.billed;
-        
+
         if (req.body.billeddate == '')
             var datebilled = '0000-00-00';
         else
