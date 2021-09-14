@@ -149,23 +149,49 @@ const controller = {
         var lineofwork = req.body.lineofbusiness;
         var companyaddress = req.body.companyaddress;
         //to tbl_client
-        var valuationdate = req.body.valuationdate;
+        if (req.body.valuationdate == '')
+            var valuationdate = '0000-00-00';
+        else
+            var valuationdate = req.body.valuationdate;
         var consultant = req.body.consultant;
         var manila = req.body.manila;
-        var datareceived = req.body.datareceived;
+        if (req.body.datareceived == '')
+            var datareceived = '0000-00-00';
+        else
+            var datareceived = req.body.datareceived;
+
         if (req.body.targetdraft == '')
             var target_draft_completion = '0000-00-00';
         else
             var target_draft_completion = req.body.targetdraft;
 
-        var draftsent = req.body.draftsent;
-        var datefinalized = req.body.finalizeddate;
-        var datedue = req.body.duedate;
-        var nxtval = req.body.nxtvaluationdate;
+        if (req.body.draftsent == '')
+            var draftsent = '0000-00-00';
+        else
+            var draftsent = req.body.draftsent;
+        
+        if (req.body.finalizeddate == '')
+            var datefinalized = '0000-00-00';
+        else
+            var datefinalized = req.body.finalizeddate;
+        
+        if (req.body.duedate == '')
+            var datedue = '0000-00-00';
+        else
+            var datedue = req.body.duedate;
+        
+        if (req.body.nxtvaluationdate == '')
+            var nxtval = '0000-00-00';
+        else
+            var nxtval = req.body.nxtvaluationdate;
+
         var fee = req.body.fee;
         var reference = req.body.reference;
         var billed = req.body.billed;
-        var datebilled = req.body.billeddate;
+        if (req.body.billeddate == '')
+            var datebilled = '0000-00-00';
+        else
+            var datebilled = req.body.billeddate;
         var invoiceno = req.body.invoiceno;
         var status = req.body.status;
         //var additional = req.body.additional;
