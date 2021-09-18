@@ -2,8 +2,7 @@ const con = require('../database.js');
 const app = require('../routes/routes.js');
 const { render } = require('../routes/routes.js');
 
-//TODO: add to tbl_project
-//TODO: confirm fields
+
 const controller = {
 
     /** This function gets all the projects by to be displayed in home. 
@@ -407,7 +406,9 @@ const controller = {
 
         console.log("client: " + clientid + ", project: " + projectid);
 
-        var sql = "DELETE FROM tbl_project_bkp WHERE client_id = " + con.escape(clientid) + " AND project_id = " + con.escape(projectid);
+        var sql = "DELETE p.*,c.* FROM tbl_project_bkp p INNER JOIN tbl_client_bkp c ON p.client_id = c.client_id " +
+            "WHERE p.client_id = " + con.escape(clientid) + " AND p.project_id = " + con.escape(projectid);
+        //var sqldelclient = "DELET FROM tbl_client_bkp WHERE client_id = "
 
         var sql2 = 'SELECT DISTINCT client_name FROM tbl_client_bkp ORDER BY client_name';
         con.query(sql, function(err, result) {
