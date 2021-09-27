@@ -246,8 +246,8 @@ const controller = {
     getQueries: function(req, res) {
         var proposal1 = 'SELECT * FROM `tbl_proposal` WHERE winning_bidder = "" AND tab_sheet = "";';
         var proposal2 = "SELECT * FROM `tbl_proposal` ORDER BY YEAR(date_submitted);";
-        var contracts_active = "SELECT * FROM tbl_contracts WHERE end_date >= CURDATE();"
-        var contracts_expired = "SELECT * FROM tbl_contracts WHERE end_date < CURDATE();";
+        var contracts_active = "SELECT * FROM tbl_contracts WHERE end_date >= CURDATE() ORDER BY YEAR(end_date), Month(end_date), Day(end_date);"
+        var contracts_expired = "SELECT * FROM tbl_contracts WHERE end_date < CURDATE() ORDER BY YEAR(end_date), Month(end_date), Day(end_date);";
 
         con.query(proposal1, function(err, data1) {
             con.query(proposal2, function(err, data2) {
